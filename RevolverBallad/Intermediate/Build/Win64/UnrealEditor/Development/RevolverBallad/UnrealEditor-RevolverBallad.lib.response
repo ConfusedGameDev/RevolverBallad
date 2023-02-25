@@ -1,0 +1,15 @@
+/NOLOGO
+/errorReport:prompt
+/MACHINE:x64
+/SUBSYSTEM:WINDOWS
+/DEF
+/NAME:"UnrealEditor-RevolverBallad.dll"
+/IGNORE:4221
+/NODEFAULTLIB
+"D:\JORGEDATA\portafolio\ue5\RevolverBallad\RevolverBallad\RevolverBallad\Intermediate\Build\Win64\RevolverBalladEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h.obj"
+"D:\JORGEDATA\portafolio\ue5\RevolverBallad\RevolverBallad\RevolverBallad\Intermediate\Build\Win64\UnrealEditor\Development\RevolverBallad\RevolverBallad.cpp.obj"
+"D:\JORGEDATA\portafolio\ue5\RevolverBallad\RevolverBallad\RevolverBallad\Intermediate\Build\Win64\UnrealEditor\Development\RevolverBallad\RevolverBalladGameModeBase.cpp.obj"
+"D:\JORGEDATA\portafolio\ue5\RevolverBallad\RevolverBallad\RevolverBallad\Intermediate\Build\Win64\UnrealEditor\Development\RevolverBallad\RevolverBallad.init.gen.cpp.obj"
+"D:\JORGEDATA\portafolio\ue5\RevolverBallad\RevolverBallad\RevolverBallad\Intermediate\Build\Win64\UnrealEditor\Development\RevolverBallad\RevolverBalladGameModeBase.gen.cpp.obj"
+"D:\JORGEDATA\portafolio\ue5\RevolverBallad\RevolverBallad\RevolverBallad\Intermediate\Build\Win64\UnrealEditor\Development\RevolverBallad\Default.rc2.res"
+/OUT:"D:\JORGEDATA\portafolio\ue5\RevolverBallad\RevolverBallad\RevolverBallad\Intermediate\Build\Win64\UnrealEditor\Development\RevolverBallad\UnrealEditor-RevolverBallad.lib"

@@ -1,0 +1,14 @@
+{
+	"Targets": [
+		{
+			"Name": "RevolverBallad",
+			"Path": "D:\\JORGEDATA\\portafolio\\ue5\\RevolverBallad\\RevolverBallad\\RevolverBallad\\Source\\RevolverBallad.Target.cs",
+			"Type": "Game"
+		},
+		{
+			"Name": "RevolverBalladEditor",
+			"Path": "D:\\JORGEDATA\\portafolio\\ue5\\RevolverBallad\\RevolverBallad\\RevolverBallad\\Source\\RevolverBalladEditor.Target.cs",
+			"Type": "Editor"
+		}
+	]
+}

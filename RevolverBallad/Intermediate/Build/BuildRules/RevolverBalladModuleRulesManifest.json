@@ -1,0 +1,8 @@
+{
+	"SourceFiles": [
+		"D:\\JORGEDATA\\portafolio\\ue5\\RevolverBallad\\RevolverBallad\\RevolverBallad\\Source\\RevolverBallad\\RevolverBallad.Build.cs",
+		"D:\\JORGEDATA\\portafolio\\ue5\\RevolverBallad\\RevolverBallad\\RevolverBallad\\Source\\RevolverBallad.Target.cs",
+		"D:\\JORGEDATA\\portafolio\\ue5\\RevolverBallad\\RevolverBallad\\RevolverBallad\\Source\\RevolverBalladEditor.Target.cs"
+	],
+	"EngineVersion": "5.0.3"
+}
