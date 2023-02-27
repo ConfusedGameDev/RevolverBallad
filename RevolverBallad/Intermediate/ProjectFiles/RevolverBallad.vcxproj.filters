@@ -23,6 +23,15 @@
     <None Include="..\..\Config\DefaultGame.ini">
       <Filter>Config</Filter>
     </None>
+    <None Include="..\..\Config\DefaultInput.ini">
+      <Filter>Config</Filter>
+    </None>
+    <Filter Include="Config\HoloLens">
+      <UniqueIdentifier>{4C8DD267-CDE7-336F-8602-F5F485D22BAB}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Config\HoloLens\HoloLensEngine.ini">
+      <Filter>Config\HoloLens</Filter>
+    </None>
     <Filter Include="Source\RevolverBallad">
       <UniqueIdentifier>{BEE03E61-5B36-3837-973D-9BBF7D3894FA}</UniqueIdentifier>
     </Filter>
@@ -40,6 +49,33 @@
     </ClCompile>
     <ClInclude Include="..\..\Source\RevolverBallad\RevolverBalladGameModeBase.h">
       <Filter>Source\RevolverBallad</Filter>
+    </ClInclude>
+    <Filter Include="Source\RevolverBallad\HUD">
+      <UniqueIdentifier>{338C65C5-9271-3D50-963C-1FBBD89BAFB7}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\RevolverBallad\HUD\HUDOverlay.cpp">
+      <Filter>Source\RevolverBallad\HUD</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\RevolverBallad\HUD\HUDOverlay.h">
+      <Filter>Source\RevolverBallad\HUD</Filter>
+    </ClInclude>
+    <Filter Include="Source\RevolverBallad\Private">
+      <UniqueIdentifier>{A1C30E32-2D5E-3B0D-8D1B-19DC03474A1B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\RevolverBallad\Private\Player">
+      <UniqueIdentifier>{7C7EB046-799D-3B8D-95B5-5C105B6329BB}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\RevolverBallad\Private\Player\DualPlayerController.cpp">
+      <Filter>Source\RevolverBallad\Private\Player</Filter>
+    </ClCompile>
+    <Filter Include="Source\RevolverBallad\Public">
+      <UniqueIdentifier>{25A4376B-4ACB-3857-87BA-4F0629813C87}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\RevolverBallad\Public\Player">
+      <UniqueIdentifier>{8F5714AB-6DCC-34BD-862D-C00B959A82A8}</UniqueIdentifier>
+    </Filter>
+    <ClInclude Include="..\..\Source\RevolverBallad\Public\Player\DualPlayerController.h">
+      <Filter>Source\RevolverBallad\Public\Player</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
