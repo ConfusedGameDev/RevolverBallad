@@ -17,7 +17,15 @@ public:
 	void SetActiveHealthBarPercent(float Percent);
 	void SetPassiveHealthBarPercent(float Percent);
 	void UpdateAmmo(int ammo);
-	void SwitchCharacters();
+	void SwitchCharacters(bool isMelee, float ActiveHealthPercent,float PassiveHealthPercent);
+	UPROPERTY(EditDefaultsOnly, Category="Characters HUD")
+	UTexture2D* ActiveMelee_TEX2D;
+	UPROPERTY(EditDefaultsOnly, Category="Characters HUD")
+	UTexture2D* ActiveRanged_TEX2D;
+	UPROPERTY(EditDefaultsOnly, Category="Characters HUD")
+	UTexture2D* PassiveRanged_TEX2D;
+	UPROPERTY(EditDefaultsOnly, Category="Characters HUD")
+	UTexture2D* PassiveMelee_TEX2D;
 private:
 	UPROPERTY(meta=(BindWidget))
 	class UProgressBar* HealthActive_ProgressBar;

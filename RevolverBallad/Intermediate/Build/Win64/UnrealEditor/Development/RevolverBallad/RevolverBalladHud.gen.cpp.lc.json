@@ -1,0 +1,20 @@
+{
+    "Version": "1.1",
+    "Data": {
+        "Source": "d:\\jorgedata\\portafolio\\ue5\\revolverballad\\revolverballad\\revolverballad\\intermediate\\build\\win64\\unrealeditor\\inc\\revolverballad\\revolverballadhud.gen.cpp",
+        "ProvidedModule": "",
+        "PCH": "d:\\jorgedata\\portafolio\\ue5\\revolverballad\\revolverballad\\revolverballad\\intermediate\\build\\win64\\revolverballadeditor\\development\\engine\\sharedpch.engine.shadowerrors.h.pch",
+        "Includes": [
+            "d:\\jorgedata\\portafolio\\ue5\\revolverballad\\revolverballad\\revolverballad\\intermediate\\build\\win64\\unrealeditor\\development\\revolverballad\\definitions.revolverballad.h",
+            "d:\\jorgedata\\portafolio\\ue5\\revolverballad\\revolverballad\\revolverballad\\source\\revolverballad\\hud\\revolverballadhud.h",
+            "c:\\program files\\epic games\\ue_5.0\\engine\\source\\runtime\\engine\\classes\\gameframework\\hud.h",
+            "c:\\program files\\epic games\\ue_5.0\\engine\\source\\runtime\\engine\\classes\\gameframework\\hudhitbox.h",
+            "c:\\program files\\epic games\\ue_5.0\\engine\\source\\runtime\\engine\\classes\\gameframework\\debugtextinfo.h",
+            "c:\\program files\\epic games\\ue_5.0\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\debugtextinfo.generated.h",
+            "c:\\program files\\epic games\\ue_5.0\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\hud.generated.h",
+            "d:\\jorgedata\\portafolio\\ue5\\revolverballad\\revolverballad\\revolverballad\\intermediate\\build\\win64\\unrealeditor\\inc\\revolverballad\\revolverballadhud.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

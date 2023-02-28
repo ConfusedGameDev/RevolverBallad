@@ -7,6 +7,8 @@
         "Includes": [
             "d:\\jorgedata\\portafolio\\ue5\\revolverballad\\revolverballad\\revolverballad\\intermediate\\build\\win64\\unrealeditor\\development\\revolverballad\\definitions.revolverballad.h",
             "d:\\jorgedata\\portafolio\\ue5\\revolverballad\\revolverballad\\revolverballad\\source\\revolverballad\\public\\player\\dualplayercontroller.h",
+            "c:\\program files\\epic games\\ue_5.0\\engine\\plugins\\experimental\\enhancedinput\\source\\enhancedinput\\public\\inputactionvalue.h",
+            "c:\\program files\\epic games\\ue_5.0\\engine\\plugins\\experimental\\enhancedinput\\intermediate\\build\\win64\\unrealeditor\\inc\\enhancedinput\\inputactionvalue.generated.h",
             "c:\\program files\\epic games\\ue_5.0\\engine\\source\\runtime\\engine\\classes\\gameframework\\character.h",
             "c:\\program files\\epic games\\ue_5.0\\engine\\source\\runtime\\engine\\classes\\gameframework\\charactermovementreplication.h",
             "c:\\program files\\epic games\\ue_5.0\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\charactermovementreplication.generated.h",

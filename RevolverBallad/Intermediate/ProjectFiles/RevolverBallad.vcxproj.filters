@@ -59,6 +59,12 @@
     <ClInclude Include="..\..\Source\RevolverBallad\HUD\HUDOverlay.h">
       <Filter>Source\RevolverBallad\HUD</Filter>
     </ClInclude>
+    <ClCompile Include="..\..\Source\RevolverBallad\HUD\RevolverBalladHud.cpp">
+      <Filter>Source\RevolverBallad\HUD</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\RevolverBallad\HUD\RevolverBalladHud.h">
+      <Filter>Source\RevolverBallad\HUD</Filter>
+    </ClInclude>
     <Filter Include="Source\RevolverBallad\Private">
       <UniqueIdentifier>{A1C30E32-2D5E-3B0D-8D1B-19DC03474A1B}</UniqueIdentifier>
     </Filter>

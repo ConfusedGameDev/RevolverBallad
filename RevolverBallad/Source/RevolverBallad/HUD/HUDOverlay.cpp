@@ -27,22 +27,34 @@ void UHUDOverlay::UpdateAmmo(int ammo)
 {
 	if(Ammo_TXT)
 	{
-		Ammo_TXT->Text=FText::AsNumber(ammo);
+		Ammo_TXT->SetText(FText::AsNumber(ammo));
 	}
 }
 
-void UHUDOverlay::SwitchCharacters()
+void UHUDOverlay::SwitchCharacters(bool isMelee, float ActiveHealthPercent,float PassiveHealthPercent)
 {
 	if(ActiveCharacter_IMG && PassiveCharacter_IMG)
 	{
-		const auto OriginalPassiveImage= PassiveCharacter_IMG->Brush;
-		PassiveCharacter_IMG->SetBrush(ActiveCharacter_IMG->Brush);
-		ActiveCharacter_IMG->SetBrush(OriginalPassiveImage);		
+		if(isMelee)
+		{
+			if(ActiveMelee_TEX2D && PassiveRanged_TEX2D)
+			{				
+				PassiveCharacter_IMG->SetBrushFromTexture(PassiveRanged_TEX2D);
+				ActiveCharacter_IMG->SetBrushFromTexture(ActiveMelee_TEX2D);
+			}
+		}
+		else
+		{
+			if(PassiveMelee_TEX2D && ActiveRanged_TEX2D)
+			{				
+				PassiveCharacter_IMG->SetBrushFromTexture(PassiveMelee_TEX2D);
+				ActiveCharacter_IMG->SetBrushFromTexture(ActiveRanged_TEX2D);
+			}
+		}
 	}
 	if(HealthPassive_ProgressBar && HealthActive_ProgressBar)
 	{
-		const auto OriginalPassiveLife= HealthPassive_ProgressBar->Percent;
-		HealthPassive_ProgressBar->Percent= HealthActive_ProgressBar->Percent;
-		HealthActive_ProgressBar->Percent= OriginalPassiveLife;
+ 		HealthPassive_ProgressBar->Percent= ActiveHealthPercent;
+		HealthActive_ProgressBar->Percent= PassiveHealthPercent;
 	}
 }

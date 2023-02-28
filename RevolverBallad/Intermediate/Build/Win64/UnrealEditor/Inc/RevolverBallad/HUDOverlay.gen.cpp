@@ -13,6 +13,7 @@ void EmptyLinkFunctionForGeneratedCodeHUDOverlay() {}
 	REVOLVERBALLAD_API UClass* Z_Construct_UClass_UHUDOverlay();
 	UMG_API UClass* Z_Construct_UClass_UUserWidget();
 	UPackage* Z_Construct_UPackage__Script_RevolverBallad();
+	ENGINE_API UClass* Z_Construct_UClass_UTexture2D_NoRegister();
 	UMG_API UClass* Z_Construct_UClass_UProgressBar_NoRegister();
 	UMG_API UClass* Z_Construct_UClass_UTextBlock_NoRegister();
 	UMG_API UClass* Z_Construct_UClass_UImage_NoRegister();
@@ -31,6 +32,22 @@ void EmptyLinkFunctionForGeneratedCodeHUDOverlay() {}
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_ActiveMelee_TEX2D_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_ActiveMelee_TEX2D;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_ActiveRanged_TEX2D_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_ActiveRanged_TEX2D;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_PassiveRanged_TEX2D_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_PassiveRanged_TEX2D;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_PassiveMelee_TEX2D_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_PassiveMelee_TEX2D;
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_HealthActive_ProgressBar_MetaData[];
 #endif
@@ -66,6 +83,34 @@ void EmptyLinkFunctionForGeneratedCodeHUDOverlay() {}
 		{ "ModuleRelativePath", "HUD/HUDOverlay.h" },
 	};
 #endif
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UHUDOverlay_Statics::NewProp_ActiveMelee_TEX2D_MetaData[] = {
+		{ "Category", "Characters HUD" },
+		{ "ModuleRelativePath", "HUD/HUDOverlay.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UHUDOverlay_Statics::NewProp_ActiveMelee_TEX2D = { "ActiveMelee_TEX2D", nullptr, (EPropertyFlags)0x0010000000010001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UHUDOverlay, ActiveMelee_TEX2D), Z_Construct_UClass_UTexture2D_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UHUDOverlay_Statics::NewProp_ActiveMelee_TEX2D_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UHUDOverlay_Statics::NewProp_ActiveMelee_TEX2D_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UHUDOverlay_Statics::NewProp_ActiveRanged_TEX2D_MetaData[] = {
+		{ "Category", "Characters HUD" },
+		{ "ModuleRelativePath", "HUD/HUDOverlay.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UHUDOverlay_Statics::NewProp_ActiveRanged_TEX2D = { "ActiveRanged_TEX2D", nullptr, (EPropertyFlags)0x0010000000010001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UHUDOverlay, ActiveRanged_TEX2D), Z_Construct_UClass_UTexture2D_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UHUDOverlay_Statics::NewProp_ActiveRanged_TEX2D_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UHUDOverlay_Statics::NewProp_ActiveRanged_TEX2D_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UHUDOverlay_Statics::NewProp_PassiveRanged_TEX2D_MetaData[] = {
+		{ "Category", "Characters HUD" },
+		{ "ModuleRelativePath", "HUD/HUDOverlay.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UHUDOverlay_Statics::NewProp_PassiveRanged_TEX2D = { "PassiveRanged_TEX2D", nullptr, (EPropertyFlags)0x0010000000010001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UHUDOverlay, PassiveRanged_TEX2D), Z_Construct_UClass_UTexture2D_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UHUDOverlay_Statics::NewProp_PassiveRanged_TEX2D_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UHUDOverlay_Statics::NewProp_PassiveRanged_TEX2D_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UHUDOverlay_Statics::NewProp_PassiveMelee_TEX2D_MetaData[] = {
+		{ "Category", "Characters HUD" },
+		{ "ModuleRelativePath", "HUD/HUDOverlay.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UHUDOverlay_Statics::NewProp_PassiveMelee_TEX2D = { "PassiveMelee_TEX2D", nullptr, (EPropertyFlags)0x0010000000010001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UHUDOverlay, PassiveMelee_TEX2D), Z_Construct_UClass_UTexture2D_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UHUDOverlay_Statics::NewProp_PassiveMelee_TEX2D_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UHUDOverlay_Statics::NewProp_PassiveMelee_TEX2D_MetaData)) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UHUDOverlay_Statics::NewProp_HealthActive_ProgressBar_MetaData[] = {
 		{ "BindWidget", "" },
@@ -107,6 +152,10 @@ void EmptyLinkFunctionForGeneratedCodeHUDOverlay() {}
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UHUDOverlay_Statics::NewProp_PassiveCharacter_IMG = { "PassiveCharacter_IMG", nullptr, (EPropertyFlags)0x0040000000080008, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UHUDOverlay, PassiveCharacter_IMG), Z_Construct_UClass_UImage_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UHUDOverlay_Statics::NewProp_PassiveCharacter_IMG_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UHUDOverlay_Statics::NewProp_PassiveCharacter_IMG_MetaData)) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UHUDOverlay_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UHUDOverlay_Statics::NewProp_ActiveMelee_TEX2D,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UHUDOverlay_Statics::NewProp_ActiveRanged_TEX2D,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UHUDOverlay_Statics::NewProp_PassiveRanged_TEX2D,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UHUDOverlay_Statics::NewProp_PassiveMelee_TEX2D,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UHUDOverlay_Statics::NewProp_HealthActive_ProgressBar,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UHUDOverlay_Statics::NewProp_HealthPassive_ProgressBar,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UHUDOverlay_Statics::NewProp_Ammo_TXT,
@@ -149,9 +198,9 @@ void EmptyLinkFunctionForGeneratedCodeHUDOverlay() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_RevolverBallad_Source_RevolverBallad_HUD_HUDOverlay_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UHUDOverlay, UHUDOverlay::StaticClass, TEXT("UHUDOverlay"), &Z_Registration_Info_UClass_UHUDOverlay, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UHUDOverlay), 917684918U) },
+		{ Z_Construct_UClass_UHUDOverlay, UHUDOverlay::StaticClass, TEXT("UHUDOverlay"), &Z_Registration_Info_UClass_UHUDOverlay, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UHUDOverlay), 1721451536U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_RevolverBallad_Source_RevolverBallad_HUD_HUDOverlay_h_4047310755(TEXT("/Script/RevolverBallad"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_RevolverBallad_Source_RevolverBallad_HUD_HUDOverlay_h_3018320285(TEXT("/Script/RevolverBallad"),
 		Z_CompiledInDeferFile_FID_RevolverBallad_Source_RevolverBallad_HUD_HUDOverlay_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_RevolverBallad_Source_RevolverBallad_HUD_HUDOverlay_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

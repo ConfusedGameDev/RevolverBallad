@@ -1,5 +1,6 @@
 D:\JORGEDATA\portafolio\ue5\RevolverBallad\RevolverBallad\RevolverBallad\Source\RevolverBallad\RevolverBallad.cpp
 /I .
+/I D:\JORGEDATA\portafolio\ue5\RevolverBallad\RevolverBallad\RevolverBallad\Source\RevolverBallad\Private
 /I ..\Intermediate\Build\Win64\UnrealEditor\Inc\Slate
 /I Runtime
 /I Runtime\Slate\Public
@@ -253,6 +254,7 @@ D:\JORGEDATA\portafolio\ue5\RevolverBallad\RevolverBallad\RevolverBallad\Source\
 /I Runtime\PropertyPath\Public
 /I D:\JORGEDATA\portafolio\ue5\RevolverBallad\RevolverBallad\RevolverBallad\Intermediate\Build\Win64\UnrealEditor\Inc\RevolverBallad
 /I D:\JORGEDATA\portafolio\ue5\RevolverBallad\RevolverBallad\RevolverBallad\Source
+/I D:\JORGEDATA\portafolio\ue5\RevolverBallad\RevolverBallad\RevolverBallad\Source\RevolverBallad\Public
 /I ThirdParty\mimalloc\include
 /I ThirdParty\LibTiff\Source\Win64
 /I ThirdParty\LibTiff\Source
