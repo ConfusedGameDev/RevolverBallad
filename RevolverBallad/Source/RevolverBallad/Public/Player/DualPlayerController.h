@@ -43,7 +43,12 @@ public:
 	UStaticMeshComponent* RangedWeapon;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	class UHUDOverlay* HudOverlay;
- 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	FVector HaircrossPosition;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float HairCrossOffset;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UStaticMeshComponent* HairCross;
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float maxHealth=100;
@@ -54,7 +59,8 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	int CurrentAmmo=99;
-	
+	UPROPERTY(EditAnywhere)
+	float RotationSpeed=100;
 	UFUNCTION(BlueprintCallable)
 	USkeletalMeshComponent* GetMeleePlayerMesh();
 	UFUNCTION(BlueprintCallable)

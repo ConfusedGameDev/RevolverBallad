@@ -8,6 +8,7 @@
 #include "Components/CapsuleComponent.h"
 #include "GameFramework/CharacterMovementComponent.h"
 #include "GameFramework/SpringArmComponent.h"
+#include "Kismet/KismetMathLibrary.h"
 #include "RevolverBallad/HUD/HUDOverlay.h"
 
 // Sets default values
@@ -33,9 +34,12 @@ ADualPlayerController::ADualPlayerController()
 
 	RangedWeapon=  CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Ranged Weapon Mesh"));
 	RangedWeapon->SetupAttachment(GetRangedPlayerMesh());
-
+	AutoPossessPlayer= EAutoReceiveInput::Player0;
+	HairCross= CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Haircross Mesh"));
+	HairCross->SetupAttachment(GetRootComponent());
+	
 	//HudOverlay= CreateDefaultSubobject<UHUDOverlay>(TEXT("HUD"));
-	MovementComponent= CreateDefaultSubobject<UCharacterMovementComponent>(TEXT("Movement Component"));
+//	MovementComponent= CreateDefaultSubobject<UCharacterMovementComponent>(TEXT("Movement Component"));
  
 }
 
@@ -57,9 +61,16 @@ void ADualPlayerController::OnShoot(const FInputActionValue& Value)
 
 void ADualPlayerController::OnMove(const FInputActionValue& Value)
 {
-	FVector2D Direction = Value.Get<FVector2D>();
- 
-	AddActorLocalOffset(GetActorForwardVector()*Direction.Y + GetActorRightVector()*Direction.X);	
+	FVector2D Direction = Value.Get<FVector2D>();	
+	if(HairCross)
+	{
+		HaircrossPosition= GetActorForwardVector()*Direction.X*250+ GetActorRightVector()* Direction.Y*250;
+		HaircrossPosition.Z=0;
+		HairCross->SetWorldLocation(GetActorLocation()+HaircrossPosition);
+	} 	 
+ 	PlayersHolder->SetWorldRotation(HaircrossPosition.GetSafeNormal().Rotation());	 
+	//GEngine->AddOnScreenDebugMessage(-1,1.f,FColor(0,1,0),FString::Printf(TEXT("direction x: %f Y:%f"),MovementDirection.X,MovementDirection.Y)); 
+	AddActorWorldOffset(PlayersHolder->GetForwardVector());
 	 
 }
 
@@ -140,7 +151,13 @@ void ADualPlayerController::SwitchPlayer()
 
 	if(PlayersHolder)
 	{
-		PlayersHolder->AddRelativeRotation(FRotator(0,180,0));
+		auto PassivePlayerLocation = GetRangedPlayerMesh()->GetComponentLocation();
+		auto PassivePlayerRotation = GetRangedPlayerMesh()->GetComponentRotation();
+		GetRangedPlayerMesh()->SetWorldLocation(GetMeleePlayerMesh()->GetComponentLocation());
+		GetRangedPlayerMesh()->SetWorldRotation(GetMeleePlayerMesh()->GetComponentRotation());
+		GetMeleePlayerMesh()->SetWorldLocation(PassivePlayerLocation);
+		GetMeleePlayerMesh()->SetWorldRotation(PassivePlayerRotation);
+		//PlayersHolder->AddRelativeRotation(FRotator(0,180,0));
 		GEngine->AddOnScreenDebugMessage(-1,1.f,FColor(1,0,0),TEXT("Rotated"));
 
 	}
