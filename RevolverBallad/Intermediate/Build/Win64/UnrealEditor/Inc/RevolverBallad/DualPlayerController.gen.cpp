@@ -39,11 +39,11 @@ void EmptyLinkFunctionForGeneratedCodeDualPlayerController() {}
 		P_THIS->GetDamage(Z_Param_DamageAmount);
 		P_NATIVE_END;
 	}
-	DEFINE_FUNCTION(ADualPlayerController::execShoot)
+	DEFINE_FUNCTION(ADualPlayerController::execLightAttack)
 	{
 		P_FINISH;
 		P_NATIVE_BEGIN;
-		P_THIS->Shoot();
+		P_THIS->LightAttack();
 		P_NATIVE_END;
 	}
 	DEFINE_FUNCTION(ADualPlayerController::execGetRangedPlayerMesh)
@@ -67,7 +67,7 @@ void EmptyLinkFunctionForGeneratedCodeDualPlayerController() {}
 			{ "GetDamage", &ADualPlayerController::execGetDamage },
 			{ "GetMeleePlayerMesh", &ADualPlayerController::execGetMeleePlayerMesh },
 			{ "GetRangedPlayerMesh", &ADualPlayerController::execGetRangedPlayerMesh },
-			{ "Shoot", &ADualPlayerController::execShoot },
+			{ "LightAttack", &ADualPlayerController::execLightAttack },
 			{ "SwitchPlayer", &ADualPlayerController::execSwitchPlayer },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
@@ -184,7 +184,7 @@ void EmptyLinkFunctionForGeneratedCodeDualPlayerController() {}
 		}
 		return ReturnFunction;
 	}
-	struct Z_Construct_UFunction_ADualPlayerController_Shoot_Statics
+	struct Z_Construct_UFunction_ADualPlayerController_LightAttack_Statics
 	{
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
@@ -192,17 +192,17 @@ void EmptyLinkFunctionForGeneratedCodeDualPlayerController() {}
 		static const UECodeGen_Private::FFunctionParams FuncParams;
 	};
 #if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ADualPlayerController_Shoot_Statics::Function_MetaDataParams[] = {
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ADualPlayerController_LightAttack_Statics::Function_MetaDataParams[] = {
 		{ "ModuleRelativePath", "Public/Player/DualPlayerController.h" },
 	};
 #endif
-	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ADualPlayerController_Shoot_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ADualPlayerController, nullptr, "Shoot", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04080401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ADualPlayerController_Shoot_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ADualPlayerController_Shoot_Statics::Function_MetaDataParams)) };
-	UFunction* Z_Construct_UFunction_ADualPlayerController_Shoot()
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ADualPlayerController_LightAttack_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ADualPlayerController, nullptr, "LightAttack", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04080401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ADualPlayerController_LightAttack_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ADualPlayerController_LightAttack_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_ADualPlayerController_LightAttack()
 	{
 		static UFunction* ReturnFunction = nullptr;
 		if (!ReturnFunction)
 		{
-			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ADualPlayerController_Shoot_Statics::FuncParams);
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ADualPlayerController_LightAttack_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -301,6 +301,20 @@ void EmptyLinkFunctionForGeneratedCodeDualPlayerController() {}
 #endif
 		static const UECodeGen_Private::FFloatPropertyParams NewProp_currentHealthRanged;
 #if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_MovementSpeed_MetaData[];
+#endif
+		static const UECodeGen_Private::FStructPropertyParams NewProp_MovementSpeed;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_Attacking_MetaData[];
+#endif
+		static void NewProp_Attacking_SetBit(void* Obj);
+		static const UECodeGen_Private::FBoolPropertyParams NewProp_Attacking;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_CanAttack_MetaData[];
+#endif
+		static void NewProp_CanAttack_SetBit(void* Obj);
+		static const UECodeGen_Private::FBoolPropertyParams NewProp_CanAttack;
+#if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_CurrentAmmo_MetaData[];
 #endif
 		static const UECodeGen_Private::FUnsizedIntPropertyParams NewProp_CurrentAmmo;
@@ -313,9 +327,9 @@ void EmptyLinkFunctionForGeneratedCodeDualPlayerController() {}
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_InGamePlayerInputContext;
 #if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_ShootInputAction_MetaData[];
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_LightAttackInputAction_MetaData[];
 #endif
-		static const UECodeGen_Private::FObjectPropertyParams NewProp_ShootInputAction;
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_LightAttackInputAction;
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_MoveInputAction_MetaData[];
 #endif
@@ -336,7 +350,7 @@ void EmptyLinkFunctionForGeneratedCodeDualPlayerController() {}
 		{ &Z_Construct_UFunction_ADualPlayerController_GetDamage, "GetDamage" }, // 1122539027
 		{ &Z_Construct_UFunction_ADualPlayerController_GetMeleePlayerMesh, "GetMeleePlayerMesh" }, // 2390512655
 		{ &Z_Construct_UFunction_ADualPlayerController_GetRangedPlayerMesh, "GetRangedPlayerMesh" }, // 2757765786
-		{ &Z_Construct_UFunction_ADualPlayerController_Shoot, "Shoot" }, // 2290090010
+		{ &Z_Construct_UFunction_ADualPlayerController_LightAttack, "LightAttack" }, // 3811582202
 		{ &Z_Construct_UFunction_ADualPlayerController_SwitchPlayer, "SwitchPlayer" }, // 3914603364
 	};
 #if WITH_METADATA
@@ -462,6 +476,35 @@ void EmptyLinkFunctionForGeneratedCodeDualPlayerController() {}
 #endif
 	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ADualPlayerController_Statics::NewProp_currentHealthRanged = { "currentHealthRanged", nullptr, (EPropertyFlags)0x0010000000020015, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ADualPlayerController, currentHealthRanged), METADATA_PARAMS(Z_Construct_UClass_ADualPlayerController_Statics::NewProp_currentHealthRanged_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADualPlayerController_Statics::NewProp_currentHealthRanged_MetaData)) };
 #if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADualPlayerController_Statics::NewProp_MovementSpeed_MetaData[] = {
+		{ "Category", "DualPlayerController" },
+		{ "ModuleRelativePath", "Public/Player/DualPlayerController.h" },
+	};
+#endif
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_ADualPlayerController_Statics::NewProp_MovementSpeed = { "MovementSpeed", nullptr, (EPropertyFlags)0x0010000000020015, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ADualPlayerController, MovementSpeed), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(Z_Construct_UClass_ADualPlayerController_Statics::NewProp_MovementSpeed_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADualPlayerController_Statics::NewProp_MovementSpeed_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADualPlayerController_Statics::NewProp_Attacking_MetaData[] = {
+		{ "Category", "DualPlayerController" },
+		{ "ModuleRelativePath", "Public/Player/DualPlayerController.h" },
+	};
+#endif
+	void Z_Construct_UClass_ADualPlayerController_Statics::NewProp_Attacking_SetBit(void* Obj)
+	{
+		((ADualPlayerController*)Obj)->Attacking = 1;
+	}
+	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_ADualPlayerController_Statics::NewProp_Attacking = { "Attacking", nullptr, (EPropertyFlags)0x0010000000020015, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(ADualPlayerController), &Z_Construct_UClass_ADualPlayerController_Statics::NewProp_Attacking_SetBit, METADATA_PARAMS(Z_Construct_UClass_ADualPlayerController_Statics::NewProp_Attacking_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADualPlayerController_Statics::NewProp_Attacking_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADualPlayerController_Statics::NewProp_CanAttack_MetaData[] = {
+		{ "Category", "DualPlayerController" },
+		{ "ModuleRelativePath", "Public/Player/DualPlayerController.h" },
+	};
+#endif
+	void Z_Construct_UClass_ADualPlayerController_Statics::NewProp_CanAttack_SetBit(void* Obj)
+	{
+		((ADualPlayerController*)Obj)->CanAttack = 1;
+	}
+	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_ADualPlayerController_Statics::NewProp_CanAttack = { "CanAttack", nullptr, (EPropertyFlags)0x0010000000020015, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(ADualPlayerController), &Z_Construct_UClass_ADualPlayerController_Statics::NewProp_CanAttack_SetBit, METADATA_PARAMS(Z_Construct_UClass_ADualPlayerController_Statics::NewProp_CanAttack_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADualPlayerController_Statics::NewProp_CanAttack_MetaData)) };
+#if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADualPlayerController_Statics::NewProp_CurrentAmmo_MetaData[] = {
 		{ "Category", "DualPlayerController" },
 		{ "ModuleRelativePath", "Public/Player/DualPlayerController.h" },
@@ -485,12 +528,12 @@ void EmptyLinkFunctionForGeneratedCodeDualPlayerController() {}
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ADualPlayerController_Statics::NewProp_InGamePlayerInputContext = { "InGamePlayerInputContext", nullptr, (EPropertyFlags)0x0010000000010015, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ADualPlayerController, InGamePlayerInputContext), Z_Construct_UClass_UInputMappingContext_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ADualPlayerController_Statics::NewProp_InGamePlayerInputContext_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADualPlayerController_Statics::NewProp_InGamePlayerInputContext_MetaData)) };
 #if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADualPlayerController_Statics::NewProp_ShootInputAction_MetaData[] = {
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADualPlayerController_Statics::NewProp_LightAttackInputAction_MetaData[] = {
 		{ "Category", "Input_GamePlay" },
 		{ "ModuleRelativePath", "Public/Player/DualPlayerController.h" },
 	};
 #endif
-	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ADualPlayerController_Statics::NewProp_ShootInputAction = { "ShootInputAction", nullptr, (EPropertyFlags)0x0010000000010005, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ADualPlayerController, ShootInputAction), Z_Construct_UClass_UInputAction_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ADualPlayerController_Statics::NewProp_ShootInputAction_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADualPlayerController_Statics::NewProp_ShootInputAction_MetaData)) };
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ADualPlayerController_Statics::NewProp_LightAttackInputAction = { "LightAttackInputAction", nullptr, (EPropertyFlags)0x0010000000010005, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ADualPlayerController, LightAttackInputAction), Z_Construct_UClass_UInputAction_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ADualPlayerController_Statics::NewProp_LightAttackInputAction_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADualPlayerController_Statics::NewProp_LightAttackInputAction_MetaData)) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADualPlayerController_Statics::NewProp_MoveInputAction_MetaData[] = {
 		{ "Category", "Input_GamePlay" },
@@ -521,10 +564,13 @@ void EmptyLinkFunctionForGeneratedCodeDualPlayerController() {}
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADualPlayerController_Statics::NewProp_maxHealth,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADualPlayerController_Statics::NewProp_currentHealthMelee,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADualPlayerController_Statics::NewProp_currentHealthRanged,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADualPlayerController_Statics::NewProp_MovementSpeed,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADualPlayerController_Statics::NewProp_Attacking,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADualPlayerController_Statics::NewProp_CanAttack,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADualPlayerController_Statics::NewProp_CurrentAmmo,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADualPlayerController_Statics::NewProp_RotationSpeed,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADualPlayerController_Statics::NewProp_InGamePlayerInputContext,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADualPlayerController_Statics::NewProp_ShootInputAction,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADualPlayerController_Statics::NewProp_LightAttackInputAction,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADualPlayerController_Statics::NewProp_MoveInputAction,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADualPlayerController_Statics::NewProp_SwitchCharacterInputAction,
 	};
@@ -564,9 +610,9 @@ void EmptyLinkFunctionForGeneratedCodeDualPlayerController() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_RevolverBallad_Source_RevolverBallad_Public_Player_DualPlayerController_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_ADualPlayerController, ADualPlayerController::StaticClass, TEXT("ADualPlayerController"), &Z_Registration_Info_UClass_ADualPlayerController, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ADualPlayerController), 3153186922U) },
+		{ Z_Construct_UClass_ADualPlayerController, ADualPlayerController::StaticClass, TEXT("ADualPlayerController"), &Z_Registration_Info_UClass_ADualPlayerController, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ADualPlayerController), 1596302628U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_RevolverBallad_Source_RevolverBallad_Public_Player_DualPlayerController_h_1083184198(TEXT("/Script/RevolverBallad"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_RevolverBallad_Source_RevolverBallad_Public_Player_DualPlayerController_h_4204206562(TEXT("/Script/RevolverBallad"),
 		Z_CompiledInDeferFile_FID_RevolverBallad_Source_RevolverBallad_Public_Player_DualPlayerController_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_RevolverBallad_Source_RevolverBallad_Public_Player_DualPlayerController_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

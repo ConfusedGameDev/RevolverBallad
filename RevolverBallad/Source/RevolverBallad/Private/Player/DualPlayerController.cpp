@@ -30,7 +30,7 @@ ADualPlayerController::ADualPlayerController()
 	Player2MSKM = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("Ranged Player Mesh"));
 	Player2MSKM->SetupAttachment(PlayersHolder);
 	MeleeWeapon=  CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Melee Weapon Mesh"));
-	MeleeWeapon->SetupAttachment(GetMeleePlayerMesh());
+	MeleeWeapon->SetupAttachment(GetMeleePlayerMesh(),FName("WeaponSocket"));
 
 	RangedWeapon=  CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Ranged Weapon Mesh"));
 	RangedWeapon->SetupAttachment(GetRangedPlayerMesh());
@@ -53,18 +53,27 @@ USkeletalMeshComponent* ADualPlayerController::GetRangedPlayerMesh()
 	return  Player2MSKM;
 }
 
-void ADualPlayerController::OnShoot(const FInputActionValue& Value)
+void ADualPlayerController::onLightAttack(const FInputActionValue& Value)
 {
-	Shoot();
-	GetDamage(5.f);
+	if(CanAttack)
+	{
+		CanAttack=false;		
+		LightAttack();
+		GetDamage(5.f);
+	}
+}
+void ADualPlayerController::onLightAttackEnd(const FInputActionValue& Value)
+{
+	CanAttack=true;
+	Attacking=false;
 }
 
 void ADualPlayerController::OnMove(const FInputActionValue& Value)
 {
-	FVector2D Direction = Value.Get<FVector2D>();	
+	MovementSpeed = FVector(Value.Get<FVector2D>().X,Value.Get<FVector2D>().Y,0);	
 	if(HairCross)
 	{
-		HaircrossPosition= GetActorForwardVector()*Direction.X*250+ GetActorRightVector()* Direction.Y*250;
+		HaircrossPosition= GetActorForwardVector()*MovementSpeed.X*250+ GetActorRightVector()* MovementSpeed.Y*250;
 		HaircrossPosition.Z=0;
 		HairCross->SetWorldLocation(GetActorLocation()+HaircrossPosition);
 	} 	 
@@ -72,6 +81,11 @@ void ADualPlayerController::OnMove(const FInputActionValue& Value)
 	//GEngine->AddOnScreenDebugMessage(-1,1.f,FColor(0,1,0),FString::Printf(TEXT("direction x: %f Y:%f"),MovementDirection.X,MovementDirection.Y)); 
 	AddActorWorldOffset(PlayersHolder->GetForwardVector());
 	 
+}
+
+void ADualPlayerController::OnMoveStop(const FInputActionValue& Value)
+{
+	MovementSpeed=FVector::Zero();
 }
 
 void ADualPlayerController::OnSwitchCharacter(const FInputActionValue& Value)
@@ -84,6 +98,7 @@ void ADualPlayerController::OnSwitchCharacter(const FInputActionValue& Value)
 void ADualPlayerController::BeginPlay()
 {
 	Super::BeginPlay();
+	MovementSpeed=FVector::Zero();
 	if(APlayerController* Player= Cast<APlayerController>(Controller))
 	{		
 		if(UEnhancedInputLocalPlayerSubsystem* Subsystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(Player->GetLocalPlayer()))
@@ -104,12 +119,19 @@ void ADualPlayerController::BeginPlay()
 	}
 }
 
-void ADualPlayerController::Shoot()
+void ADualPlayerController::LightAttack()
 {
-	if(CurrentAmmo>0 && HudOverlay)
+	if(PlayerState== EPlayerState::EState_Melee)
 	{
-		CurrentAmmo--;
-		HudOverlay->UpdateAmmo(CurrentAmmo);
+		Attacking=true;	
+	}
+	else if(PlayerState== EPlayerState::EState_Ranged)
+	{
+		if(CurrentAmmo>0 && HudOverlay)
+		{
+			CurrentAmmo--;
+			HudOverlay->UpdateAmmo(CurrentAmmo);
+		}
 	}
 }
 
@@ -193,7 +215,11 @@ void ADualPlayerController::SetupPlayerInputComponent(UInputComponent* PlayerInp
 	if(UEnhancedInputComponent* UEIC= CastChecked<UEnhancedInputComponent>(PlayerInputComponent))
 	{
 		UEIC->BindAction(MoveInputAction,ETriggerEvent::Triggered,this,&ADualPlayerController::OnMove);
-		UEIC->BindAction(ShootInputAction,ETriggerEvent::Started,this,&ADualPlayerController::OnShoot);
+		UEIC->BindAction(MoveInputAction,ETriggerEvent::Completed,this,&ADualPlayerController::OnMoveStop);
+
+		UEIC->BindAction(LightAttackInputAction,ETriggerEvent::Started,this,&ADualPlayerController::onLightAttack);
+		UEIC->BindAction(LightAttackInputAction,ETriggerEvent::Completed,this,&ADualPlayerController::onLightAttackEnd);
+
 		UEIC->BindAction(SwitchCharacterInputAction, ETriggerEvent::Started,this, &ADualPlayerController::OnSwitchCharacter);
 		 
 	}

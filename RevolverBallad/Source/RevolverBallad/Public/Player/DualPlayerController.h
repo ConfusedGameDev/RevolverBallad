@@ -57,6 +57,13 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	float currentHealthRanged=100;
 
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	FVector MovementSpeed;
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	bool Attacking;
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	bool CanAttack=true;
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	int CurrentAmmo=99;
 	UPROPERTY(EditAnywhere)
@@ -71,14 +78,16 @@ public:
 	class UInputMappingContext* InGamePlayerInputContext;
 
 	UPROPERTY(EditDefaultsOnly,BlueprintReadWrite, Category="Input_GamePlay")
-	class UInputAction* ShootInputAction;
+	class UInputAction* LightAttackInputAction;
 	UPROPERTY(EditDefaultsOnly,BlueprintReadWrite, Category="Input_GamePlay")
 	class UInputAction* MoveInputAction;
 	UPROPERTY(EditDefaultsOnly,BlueprintReadWrite, Category="Input_GamePlay")
 	class UInputAction* SwitchCharacterInputAction;
 
-	void OnShoot(const FInputActionValue& Value);
+	void onLightAttack(const FInputActionValue& Value);
+	void onLightAttackEnd(const FInputActionValue& Value);
 	void OnMove(const FInputActionValue& Value);
+	void OnMoveStop(const FInputActionValue& Value);
 	void OnSwitchCharacter(const FInputActionValue& Value);
 	
 
@@ -86,7 +95,7 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 	UFUNCTION(BlueprintCallable)
-	void Shoot();
+	void LightAttack();
 	UFUNCTION(BlueprintCallable)
 	void GetDamage(float DamageAmount);
 	UFUNCTION(BlueprintCallable)

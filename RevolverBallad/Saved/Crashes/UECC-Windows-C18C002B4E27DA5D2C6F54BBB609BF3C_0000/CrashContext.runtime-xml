@@ -25,7 +25,7 @@
 		<EngineModeEx>Dirty</EngineModeEx>
 		<DeploymentName />
 		<EngineVersion>5.0.3-20979098+++UE5+Release-5.0</EngineVersion>
-		<CommandLine>D:\JORGEDATA\portafolio\ue5\RevolverBallad\RevolverBallad\RevolverBallad\RevolverBallad.uproject -skipcompile</CommandLine>
+		<CommandLine>CommandLineRemoved</CommandLine>
 		<LanguageLCID>0</LanguageLCID>
 		<AppDefaultLocale>es-MX</AppDefaultLocale>
 		<BuildVersion>++UE5+Release-5.0-CL-20979098</BuildVersion>
