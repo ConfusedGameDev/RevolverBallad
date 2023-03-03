@@ -6,23 +6,26 @@
 #include "InputActionValue.h"
 #include "GameFramework/Character.h"
 #include "DualPlayerController.generated.h"
+
+UENUM(BlueprintType)
+enum class EPlayerState:uint8
+{
+	EState_Melee UMETA("Melee"),
+	EState_Ranged UMETA("Ranged"),
+	EState_Pause UMETA("Pause"),
+	EState_Dead UMETA("Dead"),
+		
+};
 UCLASS()
 class REVOLVERBALLAD_API ADualPlayerController : public APawn
 {
 	GENERATED_BODY()
 
 public:
-
 	
-	enum class EPlayerState
-	{
-		EState_Melee,
-		EState_Ranged,
-		EState_Pause,
-		EState_Dead,
-		
-	};
-	EPlayerState PlayerState= EPlayerState::EState_Melee;
+	
+	UPROPERTY(VisibleAnywhere,BlueprintReadOnly)
+	EPlayerState CurrentPlayerState= EPlayerState::EState_Melee;
 	// Sets default values for this character's properties
 	ADualPlayerController();
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
@@ -73,6 +76,11 @@ public:
 	UFUNCTION(BlueprintCallable)
 	USkeletalMeshComponent* GetRangedPlayerMesh();
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float JumpForce;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	bool isJumping;
+	
 	//INPUT
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Input_GamePlay")
 	class UInputMappingContext* InGamePlayerInputContext;
@@ -83,13 +91,16 @@ public:
 	class UInputAction* MoveInputAction;
 	UPROPERTY(EditDefaultsOnly,BlueprintReadWrite, Category="Input_GamePlay")
 	class UInputAction* SwitchCharacterInputAction;
-
+	UPROPERTY(EditDefaultsOnly,BlueprintReadWrite, Category="Input_GamePlay")
+	class UInputAction* JumpAction;
+	
 	void onLightAttack(const FInputActionValue& Value);
 	void onLightAttackEnd(const FInputActionValue& Value);
 	void OnMove(const FInputActionValue& Value);
 	void OnMoveStop(const FInputActionValue& Value);
 	void OnSwitchCharacter(const FInputActionValue& Value);
-	
+	void OnJump(const FInputActionValue& Value);
+	void OnJumpEnd(const FInputActionValue& Value);
 
 protected:
 	// Called when the game starts or when spawned

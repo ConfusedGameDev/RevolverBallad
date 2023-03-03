@@ -94,6 +94,17 @@ void ADualPlayerController::OnSwitchCharacter(const FInputActionValue& Value)
 	GEngine->AddOnScreenDebugMessage(-1,1.f,FColor(1,0,0),TEXT("CHANGE!"));
 }
 
+void ADualPlayerController::OnJump(const FInputActionValue& Value)
+{
+	isJumping=true;
+	AddActorWorldOffset(PlayersHolder->GetForwardVector()*JumpForce);	
+}
+
+void ADualPlayerController::OnJumpEnd(const FInputActionValue& Value)
+{
+	isJumping=false;
+}
+
 // Called when the game starts or when spawned
 void ADualPlayerController::BeginPlay()
 {
@@ -121,11 +132,11 @@ void ADualPlayerController::BeginPlay()
 
 void ADualPlayerController::LightAttack()
 {
-	if(PlayerState== EPlayerState::EState_Melee)
+	if(CurrentPlayerState== EPlayerState::EState_Melee)
 	{
 		Attacking=true;	
 	}
-	else if(PlayerState== EPlayerState::EState_Ranged)
+	else if(CurrentPlayerState== EPlayerState::EState_Ranged)
 	{
 		if(CurrentAmmo>0 && HudOverlay)
 		{
@@ -137,24 +148,24 @@ void ADualPlayerController::LightAttack()
 
 void ADualPlayerController::GetDamage(float DamageAmount)
 {
-	if(PlayerState== EPlayerState::EState_Melee)
+	if(CurrentPlayerState== EPlayerState::EState_Melee)
 	{
 		currentHealthMelee-=DamageAmount;
 		if(currentHealthMelee<=0)
 		{
-			PlayerState= EPlayerState::EState_Dead;
+			CurrentPlayerState= EPlayerState::EState_Dead;
 		}
 		if(HudOverlay)
 		{
 			HudOverlay->SetActiveHealthBarPercent(currentHealthMelee/maxHealth);
 		}
 	}
-	else if(PlayerState== EPlayerState::EState_Ranged)
+	else if(CurrentPlayerState== EPlayerState::EState_Ranged)
 	{
 		currentHealthRanged-=DamageAmount;
 		if(currentHealthRanged<=0)
 		{
-			PlayerState= EPlayerState::EState_Dead;
+			CurrentPlayerState= EPlayerState::EState_Dead;
 		}
 		if(HudOverlay)
 		{
@@ -168,7 +179,7 @@ void ADualPlayerController::SwitchPlayer()
 {
 	GEngine->AddOnScreenDebugMessage(-1,1.f,FColor(1,0,0),TEXT("CHANGE start!"));
 
-	if(PlayerState!= EPlayerState::EState_Melee && PlayerState!= EPlayerState::EState_Ranged) return;
+	if(CurrentPlayerState!= EPlayerState::EState_Melee && CurrentPlayerState!= EPlayerState::EState_Ranged) return;
 	GEngine->AddOnScreenDebugMessage(-1,1.f,FColor(1,0,0),TEXT("its melee or ranged!"));
 
 	if(PlayersHolder)
@@ -183,10 +194,10 @@ void ADualPlayerController::SwitchPlayer()
 		GEngine->AddOnScreenDebugMessage(-1,1.f,FColor(1,0,0),TEXT("Rotated"));
 
 	}
-	PlayerState= PlayerState== EPlayerState::EState_Melee? EPlayerState::EState_Ranged:EPlayerState::EState_Melee;
+	CurrentPlayerState= CurrentPlayerState== EPlayerState::EState_Melee? EPlayerState::EState_Ranged:EPlayerState::EState_Melee;
 	if(HudOverlay)
 	{
-		if(PlayerState== EPlayerState::EState_Melee)
+		if(CurrentPlayerState== EPlayerState::EState_Melee)
 		{
 			HudOverlay->SwitchCharacters(true, currentHealthMelee, currentHealthRanged);
 		}
@@ -221,6 +232,9 @@ void ADualPlayerController::SetupPlayerInputComponent(UInputComponent* PlayerInp
 		UEIC->BindAction(LightAttackInputAction,ETriggerEvent::Completed,this,&ADualPlayerController::onLightAttackEnd);
 
 		UEIC->BindAction(SwitchCharacterInputAction, ETriggerEvent::Started,this, &ADualPlayerController::OnSwitchCharacter);
+
+		UEIC->BindAction(JumpAction, ETriggerEvent::Started,this, &ADualPlayerController::OnJump);
+		UEIC->BindAction(JumpAction, ETriggerEvent::Completed,this, &ADualPlayerController::OnJumpEnd);
 		 
 	}
 
