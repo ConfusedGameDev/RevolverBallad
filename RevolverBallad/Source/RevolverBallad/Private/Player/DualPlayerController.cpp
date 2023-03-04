@@ -29,14 +29,25 @@ ADualPlayerController::ADualPlayerController()
 	
 	Player2MSKM = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("Ranged Player Mesh"));
 	Player2MSKM->SetupAttachment(PlayersHolder);
-	MeleeWeapon=  CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Melee Weapon Mesh"));
-	MeleeWeapon->SetupAttachment(GetMeleePlayerMesh(),FName("WeaponSocket"));
+	
 
-	RangedWeapon=  CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Ranged Weapon Mesh"));
-	RangedWeapon->SetupAttachment(GetRangedPlayerMesh());
+
 	AutoPossessPlayer= EAutoReceiveInput::Player0;
 	HairCross= CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Haircross Mesh"));
 	HairCross->SetupAttachment(GetRootComponent());
+
+	
+
+	//Weapons
+	MeleeWeapon=  CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Melee Weapon Mesh"));
+	MeleeWeapon->SetupAttachment(GetMeleePlayerMesh(),FName("WeaponSocket"));
+	RangedWeapon=  CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Ranged Weapon Mesh"));
+	RangedWeapon->SetupAttachment(GetRangedPlayerMesh(),"ShotgunSocket");
+
+	RangedShield=  CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Ranged Shield Mesh"));
+	RangedShield->SetupAttachment(GetRangedPlayerMesh(),"ShieldSocket");
+	MeleeShield=  CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Melee Shield Mesh"));
+	MeleeShield->SetupAttachment(GetMeleePlayerMesh(), "ShieldSocket");
 	
 	//HudOverlay= CreateDefaultSubobject<UHUDOverlay>(TEXT("HUD"));
 //	MovementComponent= CreateDefaultSubobject<UCharacterMovementComponent>(TEXT("Movement Component"));
@@ -207,8 +218,19 @@ void ADualPlayerController::SwitchPlayer()
 		}
 	}
 	
+	UpdateWeapons();
 	
-	
+}
+
+void ADualPlayerController::UpdateWeapons()
+{
+	if(MeleeShield && MeleeWeapon && RangedShield && RangedWeapon)
+	{
+		MeleeShield->SetVisibility(CurrentPlayerState== EPlayerState::EState_Ranged);
+		RangedShield->SetVisibility(CurrentPlayerState== EPlayerState::EState_Melee);
+		RangedWeapon->SetVisibility(CurrentPlayerState== EPlayerState::EState_Ranged);
+		MeleeWeapon->SetVisibility(CurrentPlayerState== EPlayerState::EState_Melee);
+	}
 }
 
 // Called every frame

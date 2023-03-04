@@ -17,6 +17,7 @@ class USkeletalMeshComponent;
 #define FID_RevolverBallad_Source_RevolverBallad_Public_Player_DualPlayerController_h_22_SPARSE_DATA
 #define FID_RevolverBallad_Source_RevolverBallad_Public_Player_DualPlayerController_h_22_RPC_WRAPPERS \
  \
+	DECLARE_FUNCTION(execUpdateWeapons); \
 	DECLARE_FUNCTION(execSwitchPlayer); \
 	DECLARE_FUNCTION(execGetDamage); \
 	DECLARE_FUNCTION(execLightAttack); \
@@ -26,6 +27,7 @@ class USkeletalMeshComponent;
 
 #define FID_RevolverBallad_Source_RevolverBallad_Public_Player_DualPlayerController_h_22_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execUpdateWeapons); \
 	DECLARE_FUNCTION(execSwitchPlayer); \
 	DECLARE_FUNCTION(execGetDamage); \
 	DECLARE_FUNCTION(execLightAttack); \

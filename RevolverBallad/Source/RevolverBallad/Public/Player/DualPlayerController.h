@@ -44,6 +44,12 @@ public:
 	UStaticMeshComponent* MeleeWeapon;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	UStaticMeshComponent* RangedWeapon;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UStaticMeshComponent* MeleeShield;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UStaticMeshComponent* RangedShield;
+	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	class UHUDOverlay* HudOverlay;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
@@ -111,6 +117,9 @@ protected:
 	void GetDamage(float DamageAmount);
 	UFUNCTION(BlueprintCallable)
 	void SwitchPlayer();
+	UFUNCTION(BlueprintCallable)
+	void UpdateWeapons();
+	
 
 	
 
