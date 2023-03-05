@@ -74,6 +74,15 @@
     <ClCompile Include="..\..\Source\RevolverBallad\Private\Player\DualPlayerController.cpp">
       <Filter>Source\RevolverBallad\Private\Player</Filter>
     </ClCompile>
+    <Filter Include="Source\RevolverBallad\Private\Weapons">
+      <UniqueIdentifier>{97BDB6F9-4180-3AAE-AAC1-9C269F08000F}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\RevolverBallad\Private\Weapons\Bullet.cpp">
+      <Filter>Source\RevolverBallad\Private\Weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\RevolverBallad\Private\Weapons\Weapon.cpp">
+      <Filter>Source\RevolverBallad\Private\Weapons</Filter>
+    </ClCompile>
     <Filter Include="Source\RevolverBallad\Public">
       <UniqueIdentifier>{25A4376B-4ACB-3857-87BA-4F0629813C87}</UniqueIdentifier>
     </Filter>
@@ -82,6 +91,15 @@
     </Filter>
     <ClInclude Include="..\..\Source\RevolverBallad\Public\Player\DualPlayerController.h">
       <Filter>Source\RevolverBallad\Public\Player</Filter>
+    </ClInclude>
+    <Filter Include="Source\RevolverBallad\Public\Weapons">
+      <UniqueIdentifier>{0B488FBC-4B0B-3B8C-B87A-EF8BC46C27A5}</UniqueIdentifier>
+    </Filter>
+    <ClInclude Include="..\..\Source\RevolverBallad\Public\Weapons\Bullet.h">
+      <Filter>Source\RevolverBallad\Public\Weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\RevolverBallad\Public\Weapons\Weapon.h">
+      <Filter>Source\RevolverBallad\Public\Weapons</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

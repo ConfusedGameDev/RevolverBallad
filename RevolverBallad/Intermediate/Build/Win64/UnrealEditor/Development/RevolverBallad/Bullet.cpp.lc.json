@@ -1,0 +1,19 @@
+{
+    "Version": "1.1",
+    "Data": {
+        "Source": "d:\\jorgedata\\portafolio\\ue5\\revolverballad\\revolverballad\\revolverballad\\source\\revolverballad\\private\\weapons\\bullet.cpp",
+        "ProvidedModule": "",
+        "PCH": "d:\\jorgedata\\portafolio\\ue5\\revolverballad\\revolverballad\\revolverballad\\intermediate\\build\\win64\\revolverballadeditor\\development\\engine\\sharedpch.engine.shadowerrors.h.pch",
+        "Includes": [
+            "d:\\jorgedata\\portafolio\\ue5\\revolverballad\\revolverballad\\revolverballad\\intermediate\\build\\win64\\unrealeditor\\development\\revolverballad\\definitions.revolverballad.h",
+            "d:\\jorgedata\\portafolio\\ue5\\revolverballad\\revolverballad\\revolverballad\\source\\revolverballad\\public\\weapons\\bullet.h",
+            "d:\\jorgedata\\portafolio\\ue5\\revolverballad\\revolverballad\\revolverballad\\intermediate\\build\\win64\\unrealeditor\\inc\\revolverballad\\bullet.generated.h",
+            "c:\\program files\\epic games\\ue_5.0\\engine\\source\\runtime\\engine\\classes\\components\\spherecomponent.h",
+            "c:\\program files\\epic games\\ue_5.0\\engine\\source\\runtime\\engine\\classes\\components\\shapecomponent.h",
+            "c:\\program files\\epic games\\ue_5.0\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\shapecomponent.generated.h",
+            "c:\\program files\\epic games\\ue_5.0\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\spherecomponent.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

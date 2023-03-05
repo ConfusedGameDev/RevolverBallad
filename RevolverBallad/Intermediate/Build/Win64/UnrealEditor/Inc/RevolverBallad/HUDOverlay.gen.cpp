@@ -68,6 +68,10 @@ void EmptyLinkFunctionForGeneratedCodeHUDOverlay() {}
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_PassiveCharacter_IMG_MetaData[];
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_PassiveCharacter_IMG;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_CurrentWeapon_IMG_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_CurrentWeapon_IMG;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UECodeGen_Private::FClassParams ClassParams;
@@ -151,6 +155,14 @@ void EmptyLinkFunctionForGeneratedCodeHUDOverlay() {}
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UHUDOverlay_Statics::NewProp_PassiveCharacter_IMG = { "PassiveCharacter_IMG", nullptr, (EPropertyFlags)0x0040000000080008, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UHUDOverlay, PassiveCharacter_IMG), Z_Construct_UClass_UImage_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UHUDOverlay_Statics::NewProp_PassiveCharacter_IMG_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UHUDOverlay_Statics::NewProp_PassiveCharacter_IMG_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UHUDOverlay_Statics::NewProp_CurrentWeapon_IMG_MetaData[] = {
+		{ "BindWidget", "" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "HUD/HUDOverlay.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UHUDOverlay_Statics::NewProp_CurrentWeapon_IMG = { "CurrentWeapon_IMG", nullptr, (EPropertyFlags)0x0040000000080008, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UHUDOverlay, CurrentWeapon_IMG), Z_Construct_UClass_UImage_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UHUDOverlay_Statics::NewProp_CurrentWeapon_IMG_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UHUDOverlay_Statics::NewProp_CurrentWeapon_IMG_MetaData)) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UHUDOverlay_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UHUDOverlay_Statics::NewProp_ActiveMelee_TEX2D,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UHUDOverlay_Statics::NewProp_ActiveRanged_TEX2D,
@@ -161,6 +173,7 @@ void EmptyLinkFunctionForGeneratedCodeHUDOverlay() {}
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UHUDOverlay_Statics::NewProp_Ammo_TXT,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UHUDOverlay_Statics::NewProp_ActiveCharacter_IMG,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UHUDOverlay_Statics::NewProp_PassiveCharacter_IMG,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UHUDOverlay_Statics::NewProp_CurrentWeapon_IMG,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_UHUDOverlay_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<UHUDOverlay>::IsAbstract,
@@ -198,9 +211,9 @@ void EmptyLinkFunctionForGeneratedCodeHUDOverlay() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_RevolverBallad_Source_RevolverBallad_HUD_HUDOverlay_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UHUDOverlay, UHUDOverlay::StaticClass, TEXT("UHUDOverlay"), &Z_Registration_Info_UClass_UHUDOverlay, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UHUDOverlay), 1721451536U) },
+		{ Z_Construct_UClass_UHUDOverlay, UHUDOverlay::StaticClass, TEXT("UHUDOverlay"), &Z_Registration_Info_UClass_UHUDOverlay, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UHUDOverlay), 2045790310U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_RevolverBallad_Source_RevolverBallad_HUD_HUDOverlay_h_3018320285(TEXT("/Script/RevolverBallad"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_RevolverBallad_Source_RevolverBallad_HUD_HUDOverlay_h_2448773229(TEXT("/Script/RevolverBallad"),
 		Z_CompiledInDeferFile_FID_RevolverBallad_Source_RevolverBallad_HUD_HUDOverlay_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_RevolverBallad_Source_RevolverBallad_HUD_HUDOverlay_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

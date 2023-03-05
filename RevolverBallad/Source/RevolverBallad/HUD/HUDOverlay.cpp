@@ -6,6 +6,7 @@
 #include "Components/Image.h"
 #include "Components/ProgressBar.h"
 #include "Components/TextBlock.h"
+#include "Weapons/Weapon.h"
 
 void UHUDOverlay::SetActiveHealthBarPercent(float Percent)
 {
@@ -27,7 +28,12 @@ void UHUDOverlay::UpdateAmmo(int ammo)
 {
 	if(Ammo_TXT)
 	{
+		if(ammo>0)
 		Ammo_TXT->SetText(FText::AsNumber(ammo));
+		else
+		{
+			Ammo_TXT->SetText(FText::FromString(""));
+		}
 	}
 }
 
@@ -57,4 +63,11 @@ void UHUDOverlay::SwitchCharacters(bool isMelee, float ActiveHealthPercent,float
  		HealthPassive_ProgressBar->Percent= ActiveHealthPercent;
 		HealthActive_ProgressBar->Percent= PassiveHealthPercent;
 	}
+}
+
+void UHUDOverlay::UpdateWeaponType(AWeapon* currentWeapon)
+{
+	if(currentWeapon->weaponIconTexture)
+	CurrentWeapon_IMG->SetBrushFromTexture(currentWeapon->weaponIconTexture);
+	UpdateAmmo(currentWeapon->ammo);
 }

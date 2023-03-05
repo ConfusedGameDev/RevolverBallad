@@ -1,0 +1,17 @@
+{
+    "Version": "1.1",
+    "Data": {
+        "Source": "d:\\jorgedata\\portafolio\\ue5\\revolverballad\\revolverballad\\revolverballad\\intermediate\\build\\win64\\unrealeditor\\inc\\revolverballad\\weapon.gen.cpp",
+        "ProvidedModule": "",
+        "PCH": "d:\\jorgedata\\portafolio\\ue5\\revolverballad\\revolverballad\\revolverballad\\intermediate\\build\\win64\\revolverballadeditor\\development\\engine\\sharedpch.engine.shadowerrors.h.pch",
+        "Includes": [
+            "d:\\jorgedata\\portafolio\\ue5\\revolverballad\\revolverballad\\revolverballad\\intermediate\\build\\win64\\unrealeditor\\development\\revolverballad\\definitions.revolverballad.h",
+            "d:\\jorgedata\\portafolio\\ue5\\revolverballad\\revolverballad\\revolverballad\\source\\revolverballad\\public\\weapons\\weapon.h",
+            "d:\\jorgedata\\portafolio\\ue5\\revolverballad\\revolverballad\\revolverballad\\source\\revolverballad\\public\\weapons\\bullet.h",
+            "d:\\jorgedata\\portafolio\\ue5\\revolverballad\\revolverballad\\revolverballad\\intermediate\\build\\win64\\unrealeditor\\inc\\revolverballad\\bullet.generated.h",
+            "d:\\jorgedata\\portafolio\\ue5\\revolverballad\\revolverballad\\revolverballad\\intermediate\\build\\win64\\unrealeditor\\inc\\revolverballad\\weapon.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

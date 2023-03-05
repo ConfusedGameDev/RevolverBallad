@@ -19,9 +19,11 @@ void EmptyLinkFunctionForGeneratedCodeDualPlayerController() {}
 	ENGINE_API UClass* Z_Construct_UClass_USceneComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_USpringArmComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UCameraComponent_NoRegister();
-	ENGINE_API UClass* Z_Construct_UClass_UStaticMeshComponent_NoRegister();
+	COREUOBJECT_API UClass* Z_Construct_UClass_UClass();
+	REVOLVERBALLAD_API UClass* Z_Construct_UClass_AWeapon_NoRegister();
 	REVOLVERBALLAD_API UClass* Z_Construct_UClass_UHUDOverlay_NoRegister();
 	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FVector();
+	ENGINE_API UClass* Z_Construct_UClass_UStaticMeshComponent_NoRegister();
 	ENHANCEDINPUT_API UClass* Z_Construct_UClass_UInputMappingContext_NoRegister();
 	ENHANCEDINPUT_API UClass* Z_Construct_UClass_UInputAction_NoRegister();
 // End Cross Module References
@@ -362,21 +364,21 @@ void EmptyLinkFunctionForGeneratedCodeDualPlayerController() {}
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_Player1MSKM;
 #if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_MeleeWeapon_MetaData[];
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_DefaultMeleeWeapon_MetaData[];
 #endif
-		static const UECodeGen_Private::FObjectPropertyParams NewProp_MeleeWeapon;
+		static const UECodeGen_Private::FClassPropertyParams NewProp_DefaultMeleeWeapon;
 #if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_RangedWeapon_MetaData[];
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_DefaultRangedWeapon_MetaData[];
 #endif
-		static const UECodeGen_Private::FObjectPropertyParams NewProp_RangedWeapon;
+		static const UECodeGen_Private::FClassPropertyParams NewProp_DefaultRangedWeapon;
 #if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_MeleeShield_MetaData[];
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_DefaultRangedShield_MetaData[];
 #endif
-		static const UECodeGen_Private::FObjectPropertyParams NewProp_MeleeShield;
+		static const UECodeGen_Private::FClassPropertyParams NewProp_DefaultRangedShield;
 #if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_RangedShield_MetaData[];
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_DefaultMeleeShield_MetaData[];
 #endif
-		static const UECodeGen_Private::FObjectPropertyParams NewProp_RangedShield;
+		static const UECodeGen_Private::FClassPropertyParams NewProp_DefaultMeleeShield;
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_HudOverlay_MetaData[];
 #endif
@@ -536,37 +538,35 @@ void EmptyLinkFunctionForGeneratedCodeDualPlayerController() {}
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ADualPlayerController_Statics::NewProp_Player1MSKM = { "Player1MSKM", nullptr, (EPropertyFlags)0x001000000008000d, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ADualPlayerController, Player1MSKM), Z_Construct_UClass_USkeletalMeshComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ADualPlayerController_Statics::NewProp_Player1MSKM_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADualPlayerController_Statics::NewProp_Player1MSKM_MetaData)) };
 #if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADualPlayerController_Statics::NewProp_MeleeWeapon_MetaData[] = {
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADualPlayerController_Statics::NewProp_DefaultMeleeWeapon_MetaData[] = {
 		{ "Category", "DualPlayerController" },
-		{ "EditInline", "true" },
+		{ "Comment", "/*\n\x09 UPROPERTY(EditAnywhere, BlueprintReadWrite)\n\x09UStaticMeshComponent* MeleeWeapon;\n\x09UPROPERTY(EditAnywhere, BlueprintReadWrite)\n\x09UStaticMeshComponent* RangedWeapon;\n\n\x09UPROPERTY(EditAnywhere, BlueprintReadWrite)\n\x09UStaticMeshComponent* MeleeShield;\n\x09UPROPERTY(EditAnywhere, BlueprintReadWrite)\n\x09UStaticMeshComponent* RangedShield;\n*/" },
 		{ "ModuleRelativePath", "Public/Player/DualPlayerController.h" },
+		{ "ToolTip", "UPROPERTY(EditAnywhere, BlueprintReadWrite)\nUStaticMeshComponent* MeleeWeapon;\nUPROPERTY(EditAnywhere, BlueprintReadWrite)\nUStaticMeshComponent* RangedWeapon;\n\nUPROPERTY(EditAnywhere, BlueprintReadWrite)\nUStaticMeshComponent* MeleeShield;\nUPROPERTY(EditAnywhere, BlueprintReadWrite)\nUStaticMeshComponent* RangedShield;" },
 	};
 #endif
-	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ADualPlayerController_Statics::NewProp_MeleeWeapon = { "MeleeWeapon", nullptr, (EPropertyFlags)0x001000000008000d, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ADualPlayerController, MeleeWeapon), Z_Construct_UClass_UStaticMeshComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ADualPlayerController_Statics::NewProp_MeleeWeapon_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADualPlayerController_Statics::NewProp_MeleeWeapon_MetaData)) };
+	const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_ADualPlayerController_Statics::NewProp_DefaultMeleeWeapon = { "DefaultMeleeWeapon", nullptr, (EPropertyFlags)0x0014000000000005, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ADualPlayerController, DefaultMeleeWeapon), Z_Construct_UClass_AWeapon_NoRegister, Z_Construct_UClass_UClass, METADATA_PARAMS(Z_Construct_UClass_ADualPlayerController_Statics::NewProp_DefaultMeleeWeapon_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADualPlayerController_Statics::NewProp_DefaultMeleeWeapon_MetaData)) };
 #if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADualPlayerController_Statics::NewProp_RangedWeapon_MetaData[] = {
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADualPlayerController_Statics::NewProp_DefaultRangedWeapon_MetaData[] = {
 		{ "Category", "DualPlayerController" },
-		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "Public/Player/DualPlayerController.h" },
 	};
 #endif
-	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ADualPlayerController_Statics::NewProp_RangedWeapon = { "RangedWeapon", nullptr, (EPropertyFlags)0x001000000008000d, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ADualPlayerController, RangedWeapon), Z_Construct_UClass_UStaticMeshComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ADualPlayerController_Statics::NewProp_RangedWeapon_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADualPlayerController_Statics::NewProp_RangedWeapon_MetaData)) };
+	const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_ADualPlayerController_Statics::NewProp_DefaultRangedWeapon = { "DefaultRangedWeapon", nullptr, (EPropertyFlags)0x0014000000000005, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ADualPlayerController, DefaultRangedWeapon), Z_Construct_UClass_AWeapon_NoRegister, Z_Construct_UClass_UClass, METADATA_PARAMS(Z_Construct_UClass_ADualPlayerController_Statics::NewProp_DefaultRangedWeapon_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADualPlayerController_Statics::NewProp_DefaultRangedWeapon_MetaData)) };
 #if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADualPlayerController_Statics::NewProp_MeleeShield_MetaData[] = {
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADualPlayerController_Statics::NewProp_DefaultRangedShield_MetaData[] = {
 		{ "Category", "DualPlayerController" },
-		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "Public/Player/DualPlayerController.h" },
 	};
 #endif
-	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ADualPlayerController_Statics::NewProp_MeleeShield = { "MeleeShield", nullptr, (EPropertyFlags)0x001000000008000d, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ADualPlayerController, MeleeShield), Z_Construct_UClass_UStaticMeshComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ADualPlayerController_Statics::NewProp_MeleeShield_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADualPlayerController_Statics::NewProp_MeleeShield_MetaData)) };
+	const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_ADualPlayerController_Statics::NewProp_DefaultRangedShield = { "DefaultRangedShield", nullptr, (EPropertyFlags)0x0014000000000005, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ADualPlayerController, DefaultRangedShield), Z_Construct_UClass_AWeapon_NoRegister, Z_Construct_UClass_UClass, METADATA_PARAMS(Z_Construct_UClass_ADualPlayerController_Statics::NewProp_DefaultRangedShield_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADualPlayerController_Statics::NewProp_DefaultRangedShield_MetaData)) };
 #if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADualPlayerController_Statics::NewProp_RangedShield_MetaData[] = {
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADualPlayerController_Statics::NewProp_DefaultMeleeShield_MetaData[] = {
 		{ "Category", "DualPlayerController" },
-		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "Public/Player/DualPlayerController.h" },
 	};
 #endif
-	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ADualPlayerController_Statics::NewProp_RangedShield = { "RangedShield", nullptr, (EPropertyFlags)0x001000000008000d, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ADualPlayerController, RangedShield), Z_Construct_UClass_UStaticMeshComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ADualPlayerController_Statics::NewProp_RangedShield_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADualPlayerController_Statics::NewProp_RangedShield_MetaData)) };
+	const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_ADualPlayerController_Statics::NewProp_DefaultMeleeShield = { "DefaultMeleeShield", nullptr, (EPropertyFlags)0x0014000000000005, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ADualPlayerController, DefaultMeleeShield), Z_Construct_UClass_AWeapon_NoRegister, Z_Construct_UClass_UClass, METADATA_PARAMS(Z_Construct_UClass_ADualPlayerController_Statics::NewProp_DefaultMeleeShield_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADualPlayerController_Statics::NewProp_DefaultMeleeShield_MetaData)) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADualPlayerController_Statics::NewProp_HudOverlay_MetaData[] = {
 		{ "Category", "DualPlayerController" },
@@ -725,10 +725,10 @@ void EmptyLinkFunctionForGeneratedCodeDualPlayerController() {}
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADualPlayerController_Statics::NewProp_CameraComponent,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADualPlayerController_Statics::NewProp_Player2MSKM,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADualPlayerController_Statics::NewProp_Player1MSKM,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADualPlayerController_Statics::NewProp_MeleeWeapon,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADualPlayerController_Statics::NewProp_RangedWeapon,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADualPlayerController_Statics::NewProp_MeleeShield,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADualPlayerController_Statics::NewProp_RangedShield,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADualPlayerController_Statics::NewProp_DefaultMeleeWeapon,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADualPlayerController_Statics::NewProp_DefaultRangedWeapon,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADualPlayerController_Statics::NewProp_DefaultRangedShield,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADualPlayerController_Statics::NewProp_DefaultMeleeShield,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADualPlayerController_Statics::NewProp_HudOverlay,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADualPlayerController_Statics::NewProp_HaircrossPosition,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADualPlayerController_Statics::NewProp_HairCrossOffset,
@@ -789,9 +789,9 @@ void EmptyLinkFunctionForGeneratedCodeDualPlayerController() {}
 		{ EPlayerState_StaticEnum, TEXT("EPlayerState"), &Z_Registration_Info_UEnum_EPlayerState, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 504311801U) },
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_RevolverBallad_Source_RevolverBallad_Public_Player_DualPlayerController_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_ADualPlayerController, ADualPlayerController::StaticClass, TEXT("ADualPlayerController"), &Z_Registration_Info_UClass_ADualPlayerController, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ADualPlayerController), 4053868569U) },
+		{ Z_Construct_UClass_ADualPlayerController, ADualPlayerController::StaticClass, TEXT("ADualPlayerController"), &Z_Registration_Info_UClass_ADualPlayerController, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ADualPlayerController), 2031504341U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_RevolverBallad_Source_RevolverBallad_Public_Player_DualPlayerController_h_3834469542(TEXT("/Script/RevolverBallad"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_RevolverBallad_Source_RevolverBallad_Public_Player_DualPlayerController_h_1551574249(TEXT("/Script/RevolverBallad"),
 		Z_CompiledInDeferFile_FID_RevolverBallad_Source_RevolverBallad_Public_Player_DualPlayerController_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_RevolverBallad_Source_RevolverBallad_Public_Player_DualPlayerController_h_Statics::ClassInfo),
 		nullptr, 0,
 		Z_CompiledInDeferFile_FID_RevolverBallad_Source_RevolverBallad_Public_Player_DualPlayerController_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_RevolverBallad_Source_RevolverBallad_Public_Player_DualPlayerController_h_Statics::EnumInfo));

@@ -10,6 +10,7 @@
 #include "GameFramework/SpringArmComponent.h"
 #include "Kismet/KismetMathLibrary.h"
 #include "RevolverBallad/HUD/HUDOverlay.h"
+#include "Weapons/Weapon.h"
 
 // Sets default values
 ADualPlayerController::ADualPlayerController()
@@ -39,7 +40,7 @@ ADualPlayerController::ADualPlayerController()
 	
 
 	//Weapons
-	MeleeWeapon=  CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Melee Weapon Mesh"));
+	/*MeleeWeapon=  CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Melee Weapon Mesh"));
 	MeleeWeapon->SetupAttachment(GetMeleePlayerMesh(),FName("WeaponSocket"));
 	RangedWeapon=  CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Ranged Weapon Mesh"));
 	RangedWeapon->SetupAttachment(GetRangedPlayerMesh(),"ShotgunSocket");
@@ -47,13 +48,35 @@ ADualPlayerController::ADualPlayerController()
 	RangedShield=  CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Ranged Shield Mesh"));
 	RangedShield->SetupAttachment(GetRangedPlayerMesh(),"ShieldSocket");
 	MeleeShield=  CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Melee Shield Mesh"));
-	MeleeShield->SetupAttachment(GetMeleePlayerMesh(), "ShieldSocket");
+	MeleeShield->SetupAttachment(GetMeleePlayerMesh(), "ShieldSocket");*/
 	
 	//HudOverlay= CreateDefaultSubobject<UHUDOverlay>(TEXT("HUD"));
 //	MovementComponent= CreateDefaultSubobject<UCharacterMovementComponent>(TEXT("Movement Component"));
  
 }
 
+void ADualPlayerController::InitializeWeapons()
+{
+	SetupWeapons(DefaultMeleeWeapon,GetMeleePlayerMesh(),CurrentMeleeWeapon);
+	SetupWeapons(DefaultMeleeShield,GetMeleePlayerMesh(),CurrentMeleeShield);
+	SetupWeapons(DefaultRangedShield,GetRangedPlayerMesh(),CurrentRangedShield);
+	SetupWeapons(DefaultRangedWeapon,GetRangedPlayerMesh(),CurrentRangedWeapon);
+	UpdateWeapons();
+}
+void ADualPlayerController::SetupWeapons(TSubclassOf<AWeapon> newWeapon, UPrimitiveComponent* WeaponOwner, AWeapon* &WeaponRef)
+{
+	if(GetWorld())
+	{
+		WeaponRef= Cast<AWeapon>(GetWorld()->SpawnActor(*newWeapon));
+		if(WeaponRef)
+		{			
+			FAttachmentTransformRules rules= FAttachmentTransformRules::KeepRelativeTransform;			
+			WeaponRef->AttachToComponent(WeaponOwner,rules,FName(WeaponRef->WeaponName.Append("_Socket")));
+		}
+		
+	}
+	
+}
 USkeletalMeshComponent* ADualPlayerController::GetMeleePlayerMesh()
 {
 	return Player1MSKM;
@@ -70,7 +93,7 @@ void ADualPlayerController::onLightAttack(const FInputActionValue& Value)
 	{
 		CanAttack=false;		
 		LightAttack();
-		GetDamage(5.f);
+		 
 	}
 }
 void ADualPlayerController::onLightAttackEnd(const FInputActionValue& Value)
@@ -139,6 +162,9 @@ void ADualPlayerController::BeginPlay()
 		HudOverlay->SetActiveHealthBarPercent(currentHealthMelee);
 		HudOverlay->SetPassiveHealthBarPercent(currentHealthRanged);
 	}
+
+	InitializeWeapons();
+	
 }
 
 void ADualPlayerController::LightAttack()
@@ -153,6 +179,8 @@ void ADualPlayerController::LightAttack()
 		{
 			CurrentAmmo--;
 			HudOverlay->UpdateAmmo(CurrentAmmo);
+			if(CurrentRangedWeapon)
+				CurrentRangedWeapon->Attack();
 		}
 	}
 }
@@ -224,14 +252,17 @@ void ADualPlayerController::SwitchPlayer()
 
 void ADualPlayerController::UpdateWeapons()
 {
-	if(MeleeShield && MeleeWeapon && RangedShield && RangedWeapon)
+	if(CurrentMeleeShield &&CurrentMeleeWeapon && CurrentRangedShield&&CurrentRangedWeapon)
 	{
-		MeleeShield->SetVisibility(CurrentPlayerState== EPlayerState::EState_Ranged);
-		RangedShield->SetVisibility(CurrentPlayerState== EPlayerState::EState_Melee);
-		RangedWeapon->SetVisibility(CurrentPlayerState== EPlayerState::EState_Ranged);
-		MeleeWeapon->SetVisibility(CurrentPlayerState== EPlayerState::EState_Melee);
+		CurrentMeleeShield->ToggleWeapon(CurrentPlayerState== EPlayerState::EState_Ranged);
+		CurrentMeleeWeapon->ToggleWeapon(CurrentPlayerState== EPlayerState::EState_Melee);
+		CurrentRangedWeapon->ToggleWeapon(CurrentPlayerState== EPlayerState::EState_Ranged);
+		CurrentRangedShield->ToggleWeapon(CurrentPlayerState== EPlayerState::EState_Melee);
+		HudOverlay->UpdateWeaponType(CurrentPlayerState== EPlayerState::EState_Ranged?CurrentRangedWeapon:CurrentMeleeWeapon);
 	}
 }
+
+
 
 // Called every frame
 void ADualPlayerController::Tick(float DeltaTime)

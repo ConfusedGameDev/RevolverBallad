@@ -18,6 +18,7 @@ public:
 	void SetPassiveHealthBarPercent(float Percent);
 	void UpdateAmmo(int ammo);
 	void SwitchCharacters(bool isMelee, float ActiveHealthPercent,float PassiveHealthPercent);
+	void UpdateWeaponType(class  AWeapon* currentWeapon);
 	UPROPERTY(EditDefaultsOnly, Category="Characters HUD")
 	UTexture2D* ActiveMelee_TEX2D;
 	UPROPERTY(EditDefaultsOnly, Category="Characters HUD")
@@ -38,6 +39,8 @@ private:
 	class UImage* ActiveCharacter_IMG;
 	UPROPERTY(meta=(BindWidget))
 	UImage* PassiveCharacter_IMG;
+	UPROPERTY(meta=(BindWidget))
+	UImage* CurrentWeapon_IMG;
 	
 	
 };

@@ -193,7 +193,11 @@
             "c:\\program files\\epic games\\ue_5.0\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\umg\\dynamicpropertypath.generated.h",
             "c:\\program files\\epic games\\ue_5.0\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\umg\\widgetblueprintgeneratedclass.generated.h",
             "c:\\program files\\epic games\\ue_5.0\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\umg\\userwidget.generated.h",
-            "d:\\jorgedata\\portafolio\\ue5\\revolverballad\\revolverballad\\revolverballad\\intermediate\\build\\win64\\unrealeditor\\inc\\revolverballad\\hudoverlay.generated.h"
+            "d:\\jorgedata\\portafolio\\ue5\\revolverballad\\revolverballad\\revolverballad\\intermediate\\build\\win64\\unrealeditor\\inc\\revolverballad\\hudoverlay.generated.h",
+            "d:\\jorgedata\\portafolio\\ue5\\revolverballad\\revolverballad\\revolverballad\\source\\revolverballad\\public\\weapons\\weapon.h",
+            "d:\\jorgedata\\portafolio\\ue5\\revolverballad\\revolverballad\\revolverballad\\source\\revolverballad\\public\\weapons\\bullet.h",
+            "d:\\jorgedata\\portafolio\\ue5\\revolverballad\\revolverballad\\revolverballad\\intermediate\\build\\win64\\unrealeditor\\inc\\revolverballad\\bullet.generated.h",
+            "d:\\jorgedata\\portafolio\\ue5\\revolverballad\\revolverballad\\revolverballad\\intermediate\\build\\win64\\unrealeditor\\inc\\revolverballad\\weapon.generated.h"
         ],
         "ImportedModules": [],
         "ImportedHeaderUnits": []

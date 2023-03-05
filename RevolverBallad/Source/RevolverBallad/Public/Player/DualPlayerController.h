@@ -40,7 +40,10 @@ public:
 	USkeletalMeshComponent* Player2MSKM;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	USkeletalMeshComponent* Player1MSKM;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+
+	//WEAPONS
+	/*
+	 UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	UStaticMeshComponent* MeleeWeapon;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	UStaticMeshComponent* RangedWeapon;
@@ -49,6 +52,23 @@ public:
 	UStaticMeshComponent* MeleeShield;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	UStaticMeshComponent* RangedShield;
+*/
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	TSubclassOf<class AWeapon> DefaultMeleeWeapon;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	TSubclassOf<class AWeapon> DefaultRangedWeapon;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	TSubclassOf<class AWeapon> DefaultRangedShield;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	TSubclassOf<class AWeapon> DefaultMeleeShield;
+
+	AWeapon* CurrentMeleeWeapon;
+	AWeapon* CurrentMeleeShield;
+	AWeapon* CurrentRangedWeapon;
+	AWeapon* CurrentRangedShield;
+
+	void InitializeWeapons();
+	void SetupWeapons(TSubclassOf<AWeapon> newWeapon, UPrimitiveComponent* WeaponOwner, AWeapon* &WeaponRef);
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	class UHUDOverlay* HudOverlay;
