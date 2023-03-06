@@ -95,8 +95,10 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	int CurrentAmmo=99;
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, Category="Gameplay Parameters")
 	float RotationSpeed=100;
+	UPROPERTY(EditAnywhere,BlueprintReadWrite, Category="Gameplay Parameters")
+	float LocomotionSpeed=500;
 	UFUNCTION(BlueprintCallable)
 	USkeletalMeshComponent* GetMeleePlayerMesh();
 	UFUNCTION(BlueprintCallable)

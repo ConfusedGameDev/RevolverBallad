@@ -112,8 +112,8 @@ void ADualPlayerController::OnMove(const FInputActionValue& Value)
 		HairCross->SetWorldLocation(GetActorLocation()+HaircrossPosition);
 	} 	 
  	PlayersHolder->SetWorldRotation(HaircrossPosition.GetSafeNormal().Rotation());	 
-	//GEngine->AddOnScreenDebugMessage(-1,1.f,FColor(0,1,0),FString::Printf(TEXT("direction x: %f Y:%f"),MovementDirection.X,MovementDirection.Y)); 
-	AddActorWorldOffset(PlayersHolder->GetForwardVector());
+	 
+	AddActorWorldOffset(PlayersHolder->GetForwardVector()*LocomotionSpeed);
 	 
 }
 
