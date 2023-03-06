@@ -16,6 +16,7 @@ void EmptyLinkFunctionForGeneratedCodeBullet() {}
 	ENGINE_API UClass* Z_Construct_UClass_UPrimitiveComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_AActor_NoRegister();
 	ENGINE_API UScriptStruct* Z_Construct_UScriptStruct_FHitResult();
+	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FVector();
 	ENGINE_API UClass* Z_Construct_UClass_UStaticMeshComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_USphereComponent_NoRegister();
 // End Cross Module References
@@ -32,11 +33,20 @@ void EmptyLinkFunctionForGeneratedCodeBullet() {}
 		P_THIS->OnCollisionEnter(Z_Param_OverlappedComponent,Z_Param_OtherActor,Z_Param_OtherComponent,Z_Param_OtherBodyIndex,Z_Param_bFromSweep,Z_Param_Out_Hit);
 		P_NATIVE_END;
 	}
+	DEFINE_FUNCTION(ABullet::execShoot)
+	{
+		P_GET_STRUCT(FVector,Z_Param_Direction);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->Shoot(Z_Param_Direction);
+		P_NATIVE_END;
+	}
 	void ABullet::StaticRegisterNativesABullet()
 	{
 		UClass* Class = ABullet::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
 			{ "OnCollisionEnter", &ABullet::execOnCollisionEnter },
+			{ "Shoot", &ABullet::execShoot },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 	}
@@ -121,6 +131,38 @@ void EmptyLinkFunctionForGeneratedCodeBullet() {}
 		}
 		return ReturnFunction;
 	}
+	struct Z_Construct_UFunction_ABullet_Shoot_Statics
+	{
+		struct Bullet_eventShoot_Parms
+		{
+			FVector Direction;
+		};
+		static const UECodeGen_Private::FStructPropertyParams NewProp_Direction;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_ABullet_Shoot_Statics::NewProp_Direction = { "Direction", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(Bullet_eventShoot_Parms, Direction), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(nullptr, 0) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ABullet_Shoot_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ABullet_Shoot_Statics::NewProp_Direction,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ABullet_Shoot_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/Weapons/Bullet.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ABullet_Shoot_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ABullet, nullptr, "Shoot", nullptr, nullptr, sizeof(Z_Construct_UFunction_ABullet_Shoot_Statics::Bullet_eventShoot_Parms), Z_Construct_UFunction_ABullet_Shoot_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ABullet_Shoot_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04820401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ABullet_Shoot_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ABullet_Shoot_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_ABullet_Shoot()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ABullet_Shoot_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 	IMPLEMENT_CLASS_NO_AUTO_REGISTRATION(ABullet);
 	UClass* Z_Construct_UClass_ABullet_NoRegister()
 	{
@@ -155,6 +197,7 @@ void EmptyLinkFunctionForGeneratedCodeBullet() {}
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_ABullet_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_ABullet_OnCollisionEnter, "OnCollisionEnter" }, // 1470488791
+		{ &Z_Construct_UFunction_ABullet_Shoot, "Shoot" }, // 2948863653
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ABullet_Statics::Class_MetaDataParams[] = {
@@ -226,9 +269,9 @@ void EmptyLinkFunctionForGeneratedCodeBullet() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_RevolverBallad_Source_RevolverBallad_Public_Weapons_Bullet_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_ABullet, ABullet::StaticClass, TEXT("ABullet"), &Z_Registration_Info_UClass_ABullet, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ABullet), 3090693635U) },
+		{ Z_Construct_UClass_ABullet, ABullet::StaticClass, TEXT("ABullet"), &Z_Registration_Info_UClass_ABullet, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ABullet), 1805770133U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_RevolverBallad_Source_RevolverBallad_Public_Weapons_Bullet_h_1343922080(TEXT("/Script/RevolverBallad"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_RevolverBallad_Source_RevolverBallad_Public_Weapons_Bullet_h_619904828(TEXT("/Script/RevolverBallad"),
 		Z_CompiledInDeferFile_FID_RevolverBallad_Source_RevolverBallad_Public_Weapons_Bullet_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_RevolverBallad_Source_RevolverBallad_Public_Weapons_Bullet_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

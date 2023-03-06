@@ -20,7 +20,10 @@ public:
 	class USphereComponent* BulletCollider;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite ,Category="Weapon Data")
 	float Speed=50000;
+	UFUNCTION(BlueprintCallable)
 	void Shoot(FVector Direction);
+	bool bHasBeenShot;
+	FVector BulletDirection;
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;

@@ -31,14 +31,15 @@ void ABullet::BeginPlay()
 
 void ABullet::Shoot(FVector Direction)
 {
-	BulletMesh->AddForce(Direction*Speed);
+	this->BulletDirection=Direction;
+	bHasBeenShot=true;
 }
 
  
 
 void ABullet::OnCollisionEnter(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComponent, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& Hit)
 {
-	GEngine->AddOnScreenDebugMessage(-1,1.0f,FColor(1,0,0), FString::Printf(TEXT("Bullet Collided with %s"),*OtherActor->GetName()));
+	GEngine->AddOnScreenDebugMessage(-1,1.0f,FColor(1,0,0), FString::Printf(TEXT("Bullet Collided with %s"),*OtherComponent->GetName()));
 	//TODO add Damage Logic
 	Destroy();
 }
@@ -47,6 +48,7 @@ void ABullet::OnCollisionEnter(UPrimitiveComponent* OverlappedComponent, AActor*
 void ABullet::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
+	if(bHasBeenShot)
+	BulletMesh->AddForce(BulletDirection*Speed,NAME_None,true);
 }
 

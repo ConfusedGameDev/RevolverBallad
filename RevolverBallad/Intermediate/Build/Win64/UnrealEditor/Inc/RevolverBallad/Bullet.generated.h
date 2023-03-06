@@ -19,12 +19,14 @@ struct FHitResult;
 #define FID_RevolverBallad_Source_RevolverBallad_Public_Weapons_Bullet_h_12_SPARSE_DATA
 #define FID_RevolverBallad_Source_RevolverBallad_Public_Weapons_Bullet_h_12_RPC_WRAPPERS \
  \
-	DECLARE_FUNCTION(execOnCollisionEnter);
+	DECLARE_FUNCTION(execOnCollisionEnter); \
+	DECLARE_FUNCTION(execShoot);
 
 
 #define FID_RevolverBallad_Source_RevolverBallad_Public_Weapons_Bullet_h_12_RPC_WRAPPERS_NO_PURE_DECLS \
  \
-	DECLARE_FUNCTION(execOnCollisionEnter);
+	DECLARE_FUNCTION(execOnCollisionEnter); \
+	DECLARE_FUNCTION(execShoot);
 
 
 #define FID_RevolverBallad_Source_RevolverBallad_Public_Weapons_Bullet_h_12_INCLASS_NO_PURE_DECLS \
