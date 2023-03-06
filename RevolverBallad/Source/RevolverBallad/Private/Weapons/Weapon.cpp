@@ -28,10 +28,13 @@ void AWeapon::Attack()
 	if(WeaponType== EWeaponType::ERanged && WeaponShootPoint && BulletType && GetWorld())
 	{
 		auto newBullet= Cast<ABullet>(GetWorld()->SpawnActor(*BulletType));
-		newBullet->SetLifeSpan(3.5f);
-		newBullet->SetActorLocation(WeaponShootPoint->GetComponentLocation());
-		newBullet->SetActorRotation(WeaponShootPoint->GetComponentRotation());
-		newBullet->Shoot(WeaponShootPoint->GetForwardVector());
+		if(newBullet)
+		{
+			newBullet->SetLifeSpan(3.5f);
+			newBullet->SetActorLocation(WeaponShootPoint->GetComponentLocation());
+			newBullet->SetActorRotation(WeaponShootPoint->GetComponentRotation());
+			newBullet->Shoot(WeaponShootPoint->GetForwardVector());
+		}
 	}
 }
 
