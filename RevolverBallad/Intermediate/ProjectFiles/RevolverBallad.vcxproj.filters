@@ -68,6 +68,12 @@
     <Filter Include="Source\RevolverBallad\Private">
       <UniqueIdentifier>{A1C30E32-2D5E-3B0D-8D1B-19DC03474A1B}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source\RevolverBallad\Private\Enemies">
+      <UniqueIdentifier>{707FED9B-1000-331B-87EF-7EF79EB10972}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\RevolverBallad\Private\Enemies\Raptor.cpp">
+      <Filter>Source\RevolverBallad\Private\Enemies</Filter>
+    </ClCompile>
     <Filter Include="Source\RevolverBallad\Private\Player">
       <UniqueIdentifier>{7C7EB046-799D-3B8D-95B5-5C105B6329BB}</UniqueIdentifier>
     </Filter>
@@ -86,6 +92,12 @@
     <Filter Include="Source\RevolverBallad\Public">
       <UniqueIdentifier>{25A4376B-4ACB-3857-87BA-4F0629813C87}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source\RevolverBallad\Public\Enemies">
+      <UniqueIdentifier>{2DD3F9CA-F42F-391E-9F11-D1F1BE286616}</UniqueIdentifier>
+    </Filter>
+    <ClInclude Include="..\..\Source\RevolverBallad\Public\Enemies\Raptor.h">
+      <Filter>Source\RevolverBallad\Public\Enemies</Filter>
+    </ClInclude>
     <Filter Include="Source\RevolverBallad\Public\Player">
       <UniqueIdentifier>{8F5714AB-6DCC-34BD-862D-C00B959A82A8}</UniqueIdentifier>
     </Filter>
