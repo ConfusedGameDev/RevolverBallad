@@ -17,11 +17,17 @@ class APawn;
 #define FID_RevolverBallad_Source_RevolverBallad_Public_Enemies_Raptor_h_12_SPARSE_DATA
 #define FID_RevolverBallad_Source_RevolverBallad_Public_Enemies_Raptor_h_12_RPC_WRAPPERS \
  \
+	DECLARE_FUNCTION(execOnAttack); \
+	DECLARE_FUNCTION(execTrySetBlackBoardKey); \
+	DECLARE_FUNCTION(execOnAttackEnd); \
 	DECLARE_FUNCTION(execOnSeeTarget);
 
 
 #define FID_RevolverBallad_Source_RevolverBallad_Public_Enemies_Raptor_h_12_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execOnAttack); \
+	DECLARE_FUNCTION(execTrySetBlackBoardKey); \
+	DECLARE_FUNCTION(execOnAttackEnd); \
 	DECLARE_FUNCTION(execOnSeeTarget);
 
 

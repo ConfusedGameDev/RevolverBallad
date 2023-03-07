@@ -74,6 +74,9 @@
     <ClCompile Include="..\..\Source\RevolverBallad\Private\Enemies\Raptor.cpp">
       <Filter>Source\RevolverBallad\Private\Enemies</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\RevolverBallad\Private\Enemies\RaptorMetralla.cpp">
+      <Filter>Source\RevolverBallad\Private\Enemies</Filter>
+    </ClCompile>
     <Filter Include="Source\RevolverBallad\Private\Player">
       <UniqueIdentifier>{7C7EB046-799D-3B8D-95B5-5C105B6329BB}</UniqueIdentifier>
     </Filter>
@@ -96,6 +99,9 @@
       <UniqueIdentifier>{2DD3F9CA-F42F-391E-9F11-D1F1BE286616}</UniqueIdentifier>
     </Filter>
     <ClInclude Include="..\..\Source\RevolverBallad\Public\Enemies\Raptor.h">
+      <Filter>Source\RevolverBallad\Public\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\RevolverBallad\Public\Enemies\RaptorMetralla.h">
       <Filter>Source\RevolverBallad\Public\Enemies</Filter>
     </ClInclude>
     <Filter Include="Source\RevolverBallad\Public\Player">
