@@ -187,6 +187,10 @@ void EmptyLinkFunctionForGeneratedCodeBullet() {}
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_Speed_MetaData[];
 #endif
 		static const UECodeGen_Private::FFloatPropertyParams NewProp_Speed;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_BulletPower_MetaData[];
+#endif
+		static const UECodeGen_Private::FFloatPropertyParams NewProp_BulletPower;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UECodeGen_Private::FClassParams ClassParams;
@@ -228,10 +232,18 @@ void EmptyLinkFunctionForGeneratedCodeBullet() {}
 	};
 #endif
 	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ABullet_Statics::NewProp_Speed = { "Speed", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ABullet, Speed), METADATA_PARAMS(Z_Construct_UClass_ABullet_Statics::NewProp_Speed_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ABullet_Statics::NewProp_Speed_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ABullet_Statics::NewProp_BulletPower_MetaData[] = {
+		{ "Category", "Weapon Data" },
+		{ "ModuleRelativePath", "Public/Weapons/Bullet.h" },
+	};
+#endif
+	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ABullet_Statics::NewProp_BulletPower = { "BulletPower", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ABullet, BulletPower), METADATA_PARAMS(Z_Construct_UClass_ABullet_Statics::NewProp_BulletPower_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ABullet_Statics::NewProp_BulletPower_MetaData)) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ABullet_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABullet_Statics::NewProp_BulletMesh,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABullet_Statics::NewProp_BulletCollider,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABullet_Statics::NewProp_Speed,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABullet_Statics::NewProp_BulletPower,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_ABullet_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<ABullet>::IsAbstract,
@@ -269,9 +281,9 @@ void EmptyLinkFunctionForGeneratedCodeBullet() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_RevolverBallad_Source_RevolverBallad_Public_Weapons_Bullet_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_ABullet, ABullet::StaticClass, TEXT("ABullet"), &Z_Registration_Info_UClass_ABullet, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ABullet), 1805770133U) },
+		{ Z_Construct_UClass_ABullet, ABullet::StaticClass, TEXT("ABullet"), &Z_Registration_Info_UClass_ABullet, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ABullet), 1264685100U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_RevolverBallad_Source_RevolverBallad_Public_Weapons_Bullet_h_619904828(TEXT("/Script/RevolverBallad"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_RevolverBallad_Source_RevolverBallad_Public_Weapons_Bullet_h_87806885(TEXT("/Script/RevolverBallad"),
 		Z_CompiledInDeferFile_FID_RevolverBallad_Source_RevolverBallad_Public_Weapons_Bullet_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_RevolverBallad_Source_RevolverBallad_Public_Weapons_Bullet_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

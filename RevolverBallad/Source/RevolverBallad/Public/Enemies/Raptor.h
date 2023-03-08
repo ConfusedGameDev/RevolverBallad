@@ -4,10 +4,11 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
+#include "Interfaces/Damageable.h"
 #include "Raptor.generated.h"
 
 UCLASS()
-class REVOLVERBALLAD_API ARaptor : public ACharacter
+class REVOLVERBALLAD_API ARaptor : public ACharacter , public IDamageable
 {
 	GENERATED_BODY()
 
@@ -22,12 +23,19 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	bool bCanAttack;
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+	bool bGetDamage;
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	class ADualPlayerController* CurrentTarget;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float AttackMinDistance=155;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float AttackCoolOffTime=3.0f;
-
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float MaxHealth=100;
+	UPROPERTY(VisibleAnywhere,BlueprintReadOnly)
+	float CurrentHealth=0;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	bool isDead=false;
 	UFUNCTION()
 	void OnSeeTarget( APawn* Target);
 	
@@ -37,6 +45,13 @@ public:
 	void TrySetBlackBoardKey(FName KeyName, bool Value);
 	UFUNCTION(BlueprintCallable)
 	virtual  void OnAttack();
+	UFUNCTION(BlueprintCallable)
+	void DamageComplete();
+
+	virtual  float GetCurrentHealth_Implementation() override;
+	virtual  void GetDamage_Implementation(float Amount) override;
+	virtual float TakeDamage(float DamageAmount, struct FDamageEvent const& DamageEvent, class AController* EventInstigator, AActor* DamageCauser) override;
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;

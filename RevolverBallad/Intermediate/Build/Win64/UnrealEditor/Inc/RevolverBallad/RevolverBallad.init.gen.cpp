@@ -17,13 +17,13 @@ void EmptyLinkFunctionForGeneratedCodeRevolverBallad_init() {}
 				nullptr,
 				0,
 				PKG_CompiledIn | 0x00000000,
-				0x410E13A2,
-				0x8F1DCC17,
+				0x2C680E40,
+				0x9FB390C9,
 				METADATA_PARAMS(nullptr, 0)
 			};
 			UECodeGen_Private::ConstructUPackage(Z_Registration_Info_UPackage__Script_RevolverBallad.OuterSingleton, PackageParams);
 		}
 		return Z_Registration_Info_UPackage__Script_RevolverBallad.OuterSingleton;
 	}
-	static FRegisterCompiledInInfo Z_CompiledInDeferPackage_UPackage__Script_RevolverBallad(Z_Construct_UPackage__Script_RevolverBallad, TEXT("/Script/RevolverBallad"), Z_Registration_Info_UPackage__Script_RevolverBallad, CONSTRUCT_RELOAD_VERSION_INFO(FPackageReloadVersionInfo, 0x410E13A2, 0x8F1DCC17));
+	static FRegisterCompiledInInfo Z_CompiledInDeferPackage_UPackage__Script_RevolverBallad(Z_Construct_UPackage__Script_RevolverBallad, TEXT("/Script/RevolverBallad"), Z_Registration_Info_UPackage__Script_RevolverBallad, CONSTRUCT_RELOAD_VERSION_INFO(FPackageReloadVersionInfo, 0x2C680E40, 0x9FB390C9));
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

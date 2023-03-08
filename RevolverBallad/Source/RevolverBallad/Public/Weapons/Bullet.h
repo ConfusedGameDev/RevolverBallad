@@ -20,6 +20,8 @@ public:
 	class USphereComponent* BulletCollider;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite ,Category="Weapon Data")
 	float Speed=50000;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite ,Category="Weapon Data")
+	float BulletPower=25;
 	UFUNCTION(BlueprintCallable)
 	void Shoot(FVector Direction);
 	bool bHasBeenShot;

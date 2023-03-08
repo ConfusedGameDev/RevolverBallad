@@ -14,42 +14,46 @@ class APawn;
 #endif
 #define REVOLVERBALLAD_Raptor_generated_h
 
-#define FID_RevolverBallad_Source_RevolverBallad_Public_Enemies_Raptor_h_12_SPARSE_DATA
-#define FID_RevolverBallad_Source_RevolverBallad_Public_Enemies_Raptor_h_12_RPC_WRAPPERS \
+#define FID_RevolverBallad_Source_RevolverBallad_Public_Enemies_Raptor_h_13_SPARSE_DATA
+#define FID_RevolverBallad_Source_RevolverBallad_Public_Enemies_Raptor_h_13_RPC_WRAPPERS \
  \
+	DECLARE_FUNCTION(execDamageComplete); \
 	DECLARE_FUNCTION(execOnAttack); \
 	DECLARE_FUNCTION(execTrySetBlackBoardKey); \
 	DECLARE_FUNCTION(execOnAttackEnd); \
 	DECLARE_FUNCTION(execOnSeeTarget);
 
 
-#define FID_RevolverBallad_Source_RevolverBallad_Public_Enemies_Raptor_h_12_RPC_WRAPPERS_NO_PURE_DECLS \
+#define FID_RevolverBallad_Source_RevolverBallad_Public_Enemies_Raptor_h_13_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execDamageComplete); \
 	DECLARE_FUNCTION(execOnAttack); \
 	DECLARE_FUNCTION(execTrySetBlackBoardKey); \
 	DECLARE_FUNCTION(execOnAttackEnd); \
 	DECLARE_FUNCTION(execOnSeeTarget);
 
 
-#define FID_RevolverBallad_Source_RevolverBallad_Public_Enemies_Raptor_h_12_INCLASS_NO_PURE_DECLS \
+#define FID_RevolverBallad_Source_RevolverBallad_Public_Enemies_Raptor_h_13_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesARaptor(); \
 	friend struct Z_Construct_UClass_ARaptor_Statics; \
 public: \
 	DECLARE_CLASS(ARaptor, ACharacter, COMPILED_IN_FLAGS(0 | CLASS_Config), CASTCLASS_None, TEXT("/Script/RevolverBallad"), NO_API) \
-	DECLARE_SERIALIZER(ARaptor)
+	DECLARE_SERIALIZER(ARaptor) \
+	virtual UObject* _getUObject() const override { return const_cast<ARaptor*>(this); }
 
 
-#define FID_RevolverBallad_Source_RevolverBallad_Public_Enemies_Raptor_h_12_INCLASS \
+#define FID_RevolverBallad_Source_RevolverBallad_Public_Enemies_Raptor_h_13_INCLASS \
 private: \
 	static void StaticRegisterNativesARaptor(); \
 	friend struct Z_Construct_UClass_ARaptor_Statics; \
 public: \
 	DECLARE_CLASS(ARaptor, ACharacter, COMPILED_IN_FLAGS(0 | CLASS_Config), CASTCLASS_None, TEXT("/Script/RevolverBallad"), NO_API) \
-	DECLARE_SERIALIZER(ARaptor)
+	DECLARE_SERIALIZER(ARaptor) \
+	virtual UObject* _getUObject() const override { return const_cast<ARaptor*>(this); }
 
 
-#define FID_RevolverBallad_Source_RevolverBallad_Public_Enemies_Raptor_h_12_STANDARD_CONSTRUCTORS \
+#define FID_RevolverBallad_Source_RevolverBallad_Public_Enemies_Raptor_h_13_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API ARaptor(const FObjectInitializer& ObjectInitializer); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(ARaptor) \
@@ -62,7 +66,7 @@ private: \
 public:
 
 
-#define FID_RevolverBallad_Source_RevolverBallad_Public_Enemies_Raptor_h_12_ENHANCED_CONSTRUCTORS \
+#define FID_RevolverBallad_Source_RevolverBallad_Public_Enemies_Raptor_h_13_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	NO_API ARaptor(ARaptor&&); \
@@ -73,25 +77,25 @@ public: \
 	DEFINE_DEFAULT_CONSTRUCTOR_CALL(ARaptor)
 
 
-#define FID_RevolverBallad_Source_RevolverBallad_Public_Enemies_Raptor_h_9_PROLOG
-#define FID_RevolverBallad_Source_RevolverBallad_Public_Enemies_Raptor_h_12_GENERATED_BODY_LEGACY \
+#define FID_RevolverBallad_Source_RevolverBallad_Public_Enemies_Raptor_h_10_PROLOG
+#define FID_RevolverBallad_Source_RevolverBallad_Public_Enemies_Raptor_h_13_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_RevolverBallad_Source_RevolverBallad_Public_Enemies_Raptor_h_12_SPARSE_DATA \
-	FID_RevolverBallad_Source_RevolverBallad_Public_Enemies_Raptor_h_12_RPC_WRAPPERS \
-	FID_RevolverBallad_Source_RevolverBallad_Public_Enemies_Raptor_h_12_INCLASS \
-	FID_RevolverBallad_Source_RevolverBallad_Public_Enemies_Raptor_h_12_STANDARD_CONSTRUCTORS \
+	FID_RevolverBallad_Source_RevolverBallad_Public_Enemies_Raptor_h_13_SPARSE_DATA \
+	FID_RevolverBallad_Source_RevolverBallad_Public_Enemies_Raptor_h_13_RPC_WRAPPERS \
+	FID_RevolverBallad_Source_RevolverBallad_Public_Enemies_Raptor_h_13_INCLASS \
+	FID_RevolverBallad_Source_RevolverBallad_Public_Enemies_Raptor_h_13_STANDARD_CONSTRUCTORS \
 public: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define FID_RevolverBallad_Source_RevolverBallad_Public_Enemies_Raptor_h_12_GENERATED_BODY \
+#define FID_RevolverBallad_Source_RevolverBallad_Public_Enemies_Raptor_h_13_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_RevolverBallad_Source_RevolverBallad_Public_Enemies_Raptor_h_12_SPARSE_DATA \
-	FID_RevolverBallad_Source_RevolverBallad_Public_Enemies_Raptor_h_12_RPC_WRAPPERS_NO_PURE_DECLS \
-	FID_RevolverBallad_Source_RevolverBallad_Public_Enemies_Raptor_h_12_INCLASS_NO_PURE_DECLS \
-	FID_RevolverBallad_Source_RevolverBallad_Public_Enemies_Raptor_h_12_ENHANCED_CONSTRUCTORS \
+	FID_RevolverBallad_Source_RevolverBallad_Public_Enemies_Raptor_h_13_SPARSE_DATA \
+	FID_RevolverBallad_Source_RevolverBallad_Public_Enemies_Raptor_h_13_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_RevolverBallad_Source_RevolverBallad_Public_Enemies_Raptor_h_13_INCLASS_NO_PURE_DECLS \
+	FID_RevolverBallad_Source_RevolverBallad_Public_Enemies_Raptor_h_13_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 

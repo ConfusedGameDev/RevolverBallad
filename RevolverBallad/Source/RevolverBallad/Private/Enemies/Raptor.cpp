@@ -22,7 +22,7 @@ ARaptor::ARaptor()
 	AttackCollider->SetCollisionEnabled(ECollisionEnabled::NoCollision);
 	PawnSensingComponent->SightRadius=700;
 	PawnSensingComponent->OnSeePawn.AddDynamic(this, &ARaptor::OnSeeTarget);
-	
+	CurrentHealth=MaxHealth;
 
 }
 
@@ -55,6 +55,35 @@ void ARaptor::TrySetBlackBoardKey(FName KeyName, bool Value)
 void ARaptor::OnAttack()
 {
 	AttackCollider->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
+}
+
+void ARaptor::DamageComplete()
+{
+	bGetDamage=false;
+	TrySetBlackBoardKey("IsStunned",false);
+	isDead= CurrentHealth<0;
+	TrySetBlackBoardKey("IsDead",isDead);
+}
+
+float ARaptor::GetCurrentHealth_Implementation()
+{
+	return CurrentHealth;
+}
+
+void ARaptor::GetDamage_Implementation(float Amount)
+{
+	CurrentHealth-=Amount;	
+	bGetDamage=true;
+	TrySetBlackBoardKey("IsStunned",true);
+	
+}
+
+float ARaptor::TakeDamage(float DamageAmount, FDamageEvent const& DamageEvent, AController* EventInstigator,
+	AActor* DamageCauser)
+{
+	Execute_GetDamage(this,DamageAmount);
+	return Super::TakeDamage(DamageAmount, DamageEvent, EventInstigator, DamageCauser);
+	
 }
 
 // Called when the game starts or when spawned

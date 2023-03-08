@@ -16,7 +16,15 @@ void EmptyLinkFunctionForGeneratedCodeRaptor() {}
 	ENGINE_API UClass* Z_Construct_UClass_APawn_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UCapsuleComponent_NoRegister();
 	REVOLVERBALLAD_API UClass* Z_Construct_UClass_ADualPlayerController_NoRegister();
+	REVOLVERBALLAD_API UClass* Z_Construct_UClass_UDamageable_NoRegister();
 // End Cross Module References
+	DEFINE_FUNCTION(ARaptor::execDamageComplete)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->DamageComplete();
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(ARaptor::execOnAttack)
 	{
 		P_FINISH;
@@ -52,12 +60,35 @@ void EmptyLinkFunctionForGeneratedCodeRaptor() {}
 	{
 		UClass* Class = ARaptor::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
+			{ "DamageComplete", &ARaptor::execDamageComplete },
 			{ "OnAttack", &ARaptor::execOnAttack },
 			{ "OnAttackEnd", &ARaptor::execOnAttackEnd },
 			{ "OnSeeTarget", &ARaptor::execOnSeeTarget },
 			{ "TrySetBlackBoardKey", &ARaptor::execTrySetBlackBoardKey },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
+	}
+	struct Z_Construct_UFunction_ARaptor_DamageComplete_Statics
+	{
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ARaptor_DamageComplete_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/Enemies/Raptor.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ARaptor_DamageComplete_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ARaptor, nullptr, "DamageComplete", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ARaptor_DamageComplete_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ARaptor_DamageComplete_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_ARaptor_DamageComplete()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ARaptor_DamageComplete_Statics::FuncParams);
+		}
+		return ReturnFunction;
 	}
 	struct Z_Construct_UFunction_ARaptor_OnAttack_Statics
 	{
@@ -203,6 +234,11 @@ void EmptyLinkFunctionForGeneratedCodeRaptor() {}
 		static void NewProp_bCanAttack_SetBit(void* Obj);
 		static const UECodeGen_Private::FBoolPropertyParams NewProp_bCanAttack;
 #if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_bGetDamage_MetaData[];
+#endif
+		static void NewProp_bGetDamage_SetBit(void* Obj);
+		static const UECodeGen_Private::FBoolPropertyParams NewProp_bGetDamage;
+#if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_CurrentTarget_MetaData[];
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_CurrentTarget;
@@ -214,7 +250,21 @@ void EmptyLinkFunctionForGeneratedCodeRaptor() {}
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_AttackCoolOffTime_MetaData[];
 #endif
 		static const UECodeGen_Private::FFloatPropertyParams NewProp_AttackCoolOffTime;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_MaxHealth_MetaData[];
+#endif
+		static const UECodeGen_Private::FFloatPropertyParams NewProp_MaxHealth;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_CurrentHealth_MetaData[];
+#endif
+		static const UECodeGen_Private::FFloatPropertyParams NewProp_CurrentHealth;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_isDead_MetaData[];
+#endif
+		static void NewProp_isDead_SetBit(void* Obj);
+		static const UECodeGen_Private::FBoolPropertyParams NewProp_isDead;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+		static const UECodeGen_Private::FImplementedInterfaceParams InterfaceParams[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UECodeGen_Private::FClassParams ClassParams;
 	};
@@ -223,6 +273,7 @@ void EmptyLinkFunctionForGeneratedCodeRaptor() {}
 		(UObject* (*)())Z_Construct_UPackage__Script_RevolverBallad,
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_ARaptor_Statics::FuncInfo[] = {
+		{ &Z_Construct_UFunction_ARaptor_DamageComplete, "DamageComplete" }, // 2666801837
 		{ &Z_Construct_UFunction_ARaptor_OnAttack, "OnAttack" }, // 2242354545
 		{ &Z_Construct_UFunction_ARaptor_OnAttackEnd, "OnAttackEnd" }, // 480934013
 		{ &Z_Construct_UFunction_ARaptor_OnSeeTarget, "OnSeeTarget" }, // 201424504
@@ -266,6 +317,17 @@ void EmptyLinkFunctionForGeneratedCodeRaptor() {}
 	}
 	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_ARaptor_Statics::NewProp_bCanAttack = { "bCanAttack", nullptr, (EPropertyFlags)0x0010000000020005, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(ARaptor), &Z_Construct_UClass_ARaptor_Statics::NewProp_bCanAttack_SetBit, METADATA_PARAMS(Z_Construct_UClass_ARaptor_Statics::NewProp_bCanAttack_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ARaptor_Statics::NewProp_bCanAttack_MetaData)) };
 #if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ARaptor_Statics::NewProp_bGetDamage_MetaData[] = {
+		{ "Category", "Raptor" },
+		{ "ModuleRelativePath", "Public/Enemies/Raptor.h" },
+	};
+#endif
+	void Z_Construct_UClass_ARaptor_Statics::NewProp_bGetDamage_SetBit(void* Obj)
+	{
+		((ARaptor*)Obj)->bGetDamage = 1;
+	}
+	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_ARaptor_Statics::NewProp_bGetDamage = { "bGetDamage", nullptr, (EPropertyFlags)0x0010000000020005, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(ARaptor), &Z_Construct_UClass_ARaptor_Statics::NewProp_bGetDamage_SetBit, METADATA_PARAMS(Z_Construct_UClass_ARaptor_Statics::NewProp_bGetDamage_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ARaptor_Statics::NewProp_bGetDamage_MetaData)) };
+#if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ARaptor_Statics::NewProp_CurrentTarget_MetaData[] = {
 		{ "Category", "Raptor" },
 		{ "ModuleRelativePath", "Public/Enemies/Raptor.h" },
@@ -286,14 +348,46 @@ void EmptyLinkFunctionForGeneratedCodeRaptor() {}
 	};
 #endif
 	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ARaptor_Statics::NewProp_AttackCoolOffTime = { "AttackCoolOffTime", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ARaptor, AttackCoolOffTime), METADATA_PARAMS(Z_Construct_UClass_ARaptor_Statics::NewProp_AttackCoolOffTime_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ARaptor_Statics::NewProp_AttackCoolOffTime_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ARaptor_Statics::NewProp_MaxHealth_MetaData[] = {
+		{ "Category", "Raptor" },
+		{ "ModuleRelativePath", "Public/Enemies/Raptor.h" },
+	};
+#endif
+	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ARaptor_Statics::NewProp_MaxHealth = { "MaxHealth", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ARaptor, MaxHealth), METADATA_PARAMS(Z_Construct_UClass_ARaptor_Statics::NewProp_MaxHealth_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ARaptor_Statics::NewProp_MaxHealth_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ARaptor_Statics::NewProp_CurrentHealth_MetaData[] = {
+		{ "Category", "Raptor" },
+		{ "ModuleRelativePath", "Public/Enemies/Raptor.h" },
+	};
+#endif
+	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ARaptor_Statics::NewProp_CurrentHealth = { "CurrentHealth", nullptr, (EPropertyFlags)0x0010000000020015, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ARaptor, CurrentHealth), METADATA_PARAMS(Z_Construct_UClass_ARaptor_Statics::NewProp_CurrentHealth_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ARaptor_Statics::NewProp_CurrentHealth_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ARaptor_Statics::NewProp_isDead_MetaData[] = {
+		{ "Category", "Raptor" },
+		{ "ModuleRelativePath", "Public/Enemies/Raptor.h" },
+	};
+#endif
+	void Z_Construct_UClass_ARaptor_Statics::NewProp_isDead_SetBit(void* Obj)
+	{
+		((ARaptor*)Obj)->isDead = 1;
+	}
+	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_ARaptor_Statics::NewProp_isDead = { "isDead", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(ARaptor), &Z_Construct_UClass_ARaptor_Statics::NewProp_isDead_SetBit, METADATA_PARAMS(Z_Construct_UClass_ARaptor_Statics::NewProp_isDead_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ARaptor_Statics::NewProp_isDead_MetaData)) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ARaptor_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARaptor_Statics::NewProp_AttackCollider,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARaptor_Statics::NewProp_bIsAttacking,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARaptor_Statics::NewProp_bCanAttack,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARaptor_Statics::NewProp_bGetDamage,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARaptor_Statics::NewProp_CurrentTarget,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARaptor_Statics::NewProp_AttackMinDistance,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARaptor_Statics::NewProp_AttackCoolOffTime,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARaptor_Statics::NewProp_MaxHealth,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARaptor_Statics::NewProp_CurrentHealth,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARaptor_Statics::NewProp_isDead,
 	};
+		const UECodeGen_Private::FImplementedInterfaceParams Z_Construct_UClass_ARaptor_Statics::InterfaceParams[] = {
+			{ Z_Construct_UClass_UDamageable_NoRegister, (int32)VTABLE_OFFSET(ARaptor, IDamageable), false },  // 2443672658
+		};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_ARaptor_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<ARaptor>::IsAbstract,
 	};
@@ -304,11 +398,11 @@ void EmptyLinkFunctionForGeneratedCodeRaptor() {}
 		DependentSingletons,
 		FuncInfo,
 		Z_Construct_UClass_ARaptor_Statics::PropPointers,
-		nullptr,
+		InterfaceParams,
 		UE_ARRAY_COUNT(DependentSingletons),
 		UE_ARRAY_COUNT(FuncInfo),
 		UE_ARRAY_COUNT(Z_Construct_UClass_ARaptor_Statics::PropPointers),
-		0,
+		UE_ARRAY_COUNT(InterfaceParams),
 		0x009000A4u,
 		METADATA_PARAMS(Z_Construct_UClass_ARaptor_Statics::Class_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UClass_ARaptor_Statics::Class_MetaDataParams))
 	};
@@ -330,9 +424,9 @@ void EmptyLinkFunctionForGeneratedCodeRaptor() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_RevolverBallad_Source_RevolverBallad_Public_Enemies_Raptor_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_ARaptor, ARaptor::StaticClass, TEXT("ARaptor"), &Z_Registration_Info_UClass_ARaptor, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ARaptor), 821267714U) },
+		{ Z_Construct_UClass_ARaptor, ARaptor::StaticClass, TEXT("ARaptor"), &Z_Registration_Info_UClass_ARaptor, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ARaptor), 3382149567U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_RevolverBallad_Source_RevolverBallad_Public_Enemies_Raptor_h_1254002075(TEXT("/Script/RevolverBallad"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_RevolverBallad_Source_RevolverBallad_Public_Enemies_Raptor_h_2383432181(TEXT("/Script/RevolverBallad"),
 		Z_CompiledInDeferFile_FID_RevolverBallad_Source_RevolverBallad_Public_Enemies_Raptor_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_RevolverBallad_Source_RevolverBallad_Public_Enemies_Raptor_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

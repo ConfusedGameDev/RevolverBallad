@@ -77,6 +77,12 @@
     <ClCompile Include="..\..\Source\RevolverBallad\Private\Enemies\RaptorMetralla.cpp">
       <Filter>Source\RevolverBallad\Private\Enemies</Filter>
     </ClCompile>
+    <Filter Include="Source\RevolverBallad\Private\Interfaces">
+      <UniqueIdentifier>{9007EC63-A52E-3E0C-A0E8-DC871B3B24B8}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\RevolverBallad\Private\Interfaces\Damageable.cpp">
+      <Filter>Source\RevolverBallad\Private\Interfaces</Filter>
+    </ClCompile>
     <Filter Include="Source\RevolverBallad\Private\Player">
       <UniqueIdentifier>{7C7EB046-799D-3B8D-95B5-5C105B6329BB}</UniqueIdentifier>
     </Filter>
@@ -103,6 +109,12 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\RevolverBallad\Public\Enemies\RaptorMetralla.h">
       <Filter>Source\RevolverBallad\Public\Enemies</Filter>
+    </ClInclude>
+    <Filter Include="Source\RevolverBallad\Public\Interfaces">
+      <UniqueIdentifier>{105B012A-7723-3677-8FF2-5E424324F30B}</UniqueIdentifier>
+    </Filter>
+    <ClInclude Include="..\..\Source\RevolverBallad\Public\Interfaces\Damageable.h">
+      <Filter>Source\RevolverBallad\Public\Interfaces</Filter>
     </ClInclude>
     <Filter Include="Source\RevolverBallad\Public\Player">
       <UniqueIdentifier>{8F5714AB-6DCC-34BD-862D-C00B959A82A8}</UniqueIdentifier>

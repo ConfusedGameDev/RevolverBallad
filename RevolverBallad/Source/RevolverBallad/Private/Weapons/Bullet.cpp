@@ -4,6 +4,8 @@
 #include "Weapons/Bullet.h"
 
 #include "Components/SphereComponent.h"
+#include "Interfaces/Damageable.h"
+#include "Kismet/GameplayStatics.h"
 
 // Sets default values
 ABullet::ABullet()
@@ -41,7 +43,15 @@ void ABullet::OnCollisionEnter(UPrimitiveComponent* OverlappedComponent, AActor*
 {
 	GEngine->AddOnScreenDebugMessage(-1,1.0f,FColor(1,0,0), FString::Printf(TEXT("Bullet Collided with %s"),*OtherComponent->GetName()));
 	//TODO add Damage Logic
-	Destroy();
+	if(OtherActor->Implements<UDamageable>())
+	{
+		FDamageEvent DamageEvent;
+		UGameplayStatics::ApplyDamage(OtherActor,BulletPower,GetInstigatorController(),this, UDamageType::StaticClass());
+
+		Destroy();
+	}
+	
+	
 }
 
 // Called every frame
