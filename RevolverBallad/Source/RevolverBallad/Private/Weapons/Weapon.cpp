@@ -27,9 +27,12 @@ void AWeapon::Attack()
 {
 	if(WeaponType== EWeaponType::ERanged && WeaponShootPoint && BulletType && GetWorld())
 	{
+		if(ammo<=0)
+			return;
 		auto newBullet= Cast<ABullet>(GetWorld()->SpawnActor(*BulletType));
 		if(newBullet)
 		{
+			ammo--;
 			newBullet->SetLifeSpan(3.5f);
 			newBullet->SetActorLocation(WeaponShootPoint->GetComponentLocation());
 			newBullet->SetActorRotation(WeaponShootPoint->GetComponentRotation());
@@ -43,7 +46,7 @@ void AWeapon::Attack()
 void AWeapon::BeginPlay()
 {
 	Super::BeginPlay();
-	
+	ammo=MaxAmmo;
 }
 
 // Called every frame

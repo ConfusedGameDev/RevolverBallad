@@ -91,15 +91,32 @@ void ADualPlayerController::onLightAttack(const FInputActionValue& Value)
 {
 	if(CanAttack)
 	{
-		CanAttack=false;		
+		 		
 		LightAttack();
 		 
 	}
 }
-void ADualPlayerController::onLightAttackEnd(const FInputActionValue& Value)
+
+void ADualPlayerController::OnLightAttackStart()
+{
+	
+	CanAttack=false;
+}
+
+void ADualPlayerController::onLightAttackEnd()
 {
 	CanAttack=true;
-	Attacking=false;
+	if(CurrentPlayerState== EPlayerState::EState_Melee)
+	{
+		
+		Attacking=false;
+	}
+	else if(CurrentPlayerState== EPlayerState::EState_Ranged)
+	{
+		Shooting=false;
+	}	
+	
+	
 }
 
 void ADualPlayerController::OnMove(const FInputActionValue& Value)
@@ -125,8 +142,7 @@ void ADualPlayerController::OnMoveStop(const FInputActionValue& Value)
 void ADualPlayerController::OnSwitchCharacter(const FInputActionValue& Value)
 {
 	SwitchPlayer();
-	GEngine->AddOnScreenDebugMessage(-1,1.f,FColor(1,0,0),TEXT("CHANGE!"));
-}
+ }
 
 void ADualPlayerController::OnJump(const FInputActionValue& Value)
 {
@@ -155,10 +171,10 @@ void ADualPlayerController::BeginPlay()
 	}
 	currentHealthMelee= maxHealth;
 	currentHealthRanged=maxHealth;
-	CurrentAmmo=99;
+	 
 	if(HudOverlay)
 	{
-		HudOverlay->UpdateAmmo(CurrentAmmo);
+		 
 		HudOverlay->SetActiveHealthBarPercent(currentHealthMelee);
 		HudOverlay->SetPassiveHealthBarPercent(currentHealthRanged);
 	}
@@ -171,18 +187,21 @@ void ADualPlayerController::LightAttack()
 {
 	if(CurrentPlayerState== EPlayerState::EState_Melee)
 	{
-		Attacking=true;	
+		Attacking=true;
+		
 	}
 	else if(CurrentPlayerState== EPlayerState::EState_Ranged)
-	{
-		if(CurrentAmmo>0 && HudOverlay)
+	{		
+		if(CurrentRangedWeapon && HudOverlay && CurrentRangedWeapon->ammo>0)
 		{
-			CurrentAmmo--;
-			HudOverlay->UpdateAmmo(CurrentAmmo);
+			Shooting=true;
+			 ;
+			HudOverlay->UpdateAmmo(CurrentRangedWeapon->ammo);
 			if(CurrentRangedWeapon)
 				CurrentRangedWeapon->Attack();
 		}
 	}
+	 
 }
 
 void ADualPlayerController::GetDamage(float DamageAmount)
@@ -216,11 +235,9 @@ void ADualPlayerController::GetDamage(float DamageAmount)
 
 void ADualPlayerController::SwitchPlayer()
 {
-	GEngine->AddOnScreenDebugMessage(-1,1.f,FColor(1,0,0),TEXT("CHANGE start!"));
-
+ 	
 	if(CurrentPlayerState!= EPlayerState::EState_Melee && CurrentPlayerState!= EPlayerState::EState_Ranged) return;
-	GEngine->AddOnScreenDebugMessage(-1,1.f,FColor(1,0,0),TEXT("its melee or ranged!"));
-
+	Attacking=Shooting=false;
 	if(PlayersHolder)
 	{
 		auto PassivePlayerLocation = GetRangedPlayerMesh()->GetComponentLocation();
@@ -230,8 +247,7 @@ void ADualPlayerController::SwitchPlayer()
 		GetMeleePlayerMesh()->SetWorldLocation(PassivePlayerLocation);
 		GetMeleePlayerMesh()->SetWorldRotation(PassivePlayerRotation);
 		//PlayersHolder->AddRelativeRotation(FRotator(0,180,0));
-		GEngine->AddOnScreenDebugMessage(-1,1.f,FColor(1,0,0),TEXT("Rotated"));
-
+ 
 	}
 	CurrentPlayerState= CurrentPlayerState== EPlayerState::EState_Melee? EPlayerState::EState_Ranged:EPlayerState::EState_Melee;
 	if(HudOverlay)
@@ -282,7 +298,7 @@ void ADualPlayerController::SetupPlayerInputComponent(UInputComponent* PlayerInp
 		UEIC->BindAction(MoveInputAction,ETriggerEvent::Completed,this,&ADualPlayerController::OnMoveStop);
 
 		UEIC->BindAction(LightAttackInputAction,ETriggerEvent::Started,this,&ADualPlayerController::onLightAttack);
-		UEIC->BindAction(LightAttackInputAction,ETriggerEvent::Completed,this,&ADualPlayerController::onLightAttackEnd);
+		//UEIC->BindAction(LightAttackInputAction,ETriggerEvent::Completed,this,&ADualPlayerController::onLightAttackEnd);
 
 		UEIC->BindAction(SwitchCharacterInputAction, ETriggerEvent::Started,this, &ADualPlayerController::OnSwitchCharacter);
 

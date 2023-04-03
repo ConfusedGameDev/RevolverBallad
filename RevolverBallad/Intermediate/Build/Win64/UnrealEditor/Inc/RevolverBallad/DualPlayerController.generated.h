@@ -21,6 +21,8 @@ class USkeletalMeshComponent;
 	DECLARE_FUNCTION(execSwitchPlayer); \
 	DECLARE_FUNCTION(execGetDamage); \
 	DECLARE_FUNCTION(execLightAttack); \
+	DECLARE_FUNCTION(execonLightAttackEnd); \
+	DECLARE_FUNCTION(execOnLightAttackStart); \
 	DECLARE_FUNCTION(execGetRangedPlayerMesh); \
 	DECLARE_FUNCTION(execGetMeleePlayerMesh);
 
@@ -31,6 +33,8 @@ class USkeletalMeshComponent;
 	DECLARE_FUNCTION(execSwitchPlayer); \
 	DECLARE_FUNCTION(execGetDamage); \
 	DECLARE_FUNCTION(execLightAttack); \
+	DECLARE_FUNCTION(execonLightAttackEnd); \
+	DECLARE_FUNCTION(execOnLightAttackStart); \
 	DECLARE_FUNCTION(execGetRangedPlayerMesh); \
 	DECLARE_FUNCTION(execGetMeleePlayerMesh);
 

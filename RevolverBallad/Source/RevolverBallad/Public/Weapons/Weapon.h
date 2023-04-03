@@ -33,6 +33,8 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Weapon Data")
 	class USceneComponent* WeaponShootPoint;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Weapon Data")
+	int MaxAmmo=99;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Weapon Data")
 	int ammo;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Weapon Data")
 	class UTexture2D* weaponIconTexture;

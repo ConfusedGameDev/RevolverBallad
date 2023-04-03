@@ -101,8 +101,7 @@ void ARaptor::Tick(float DeltaTime)
 	if(bCanAttack && CurrentTarget)
 	{
 		auto currentDistance= FVector::Distance(GetActorLocation(),CurrentTarget->GetActorLocation());
-		GEngine->AddOnScreenDebugMessage(-1,1.f,FColor(1,0,0),FString::Printf(TEXT("Dist =  %f"),currentDistance));
-		if(!bIsAttacking && currentDistance<=AttackMinDistance)
+ 		if(!bIsAttacking && currentDistance<=AttackMinDistance)
 		{
 			bIsAttacking=true;
 			TrySetBlackBoardKey(FName("HasSeenPlayer"),false);

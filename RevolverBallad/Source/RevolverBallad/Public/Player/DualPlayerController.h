@@ -88,13 +88,14 @@ public:
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	FVector MovementSpeed;
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	bool Attacking;
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+	bool Shooting;
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	bool CanAttack=true;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	int CurrentAmmo=99;
+	 
 	UPROPERTY(EditAnywhere, Category="Gameplay Parameters")
 	float RotationSpeed=100;
 	UPROPERTY(EditAnywhere,BlueprintReadWrite, Category="Gameplay Parameters")
@@ -123,7 +124,10 @@ public:
 	class UInputAction* JumpAction;
 	
 	void onLightAttack(const FInputActionValue& Value);
-	void onLightAttackEnd(const FInputActionValue& Value);
+	UFUNCTION(BlueprintCallable)
+	void OnLightAttackStart();
+	UFUNCTION(BlueprintCallable)
+	void onLightAttackEnd();
 	void OnMove(const FInputActionValue& Value);
 	void OnMoveStop(const FInputActionValue& Value);
 	void OnSwitchCharacter(const FInputActionValue& Value);
